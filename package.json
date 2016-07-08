@@ -5,7 +5,7 @@
   "description": "Kibana UI Framework",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base build/",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
     "build": "./node_modules/.bin/webpack -p"
   },
   "dependencies": {
