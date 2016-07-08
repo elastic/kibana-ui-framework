@@ -8,13 +8,13 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
 
   resolve: {
     root: [
-      path.resolve('./src')
+      path.resolve(__dirname, 'src')
     ]
   },
 
@@ -25,7 +25,8 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
+      loaders: ['style', 'css', 'sass'],
+      exclude: /node_modules/
     }]
   }
 };
