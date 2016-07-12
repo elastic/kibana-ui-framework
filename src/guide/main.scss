@@ -1,6 +1,12 @@
 
 @import "../framework/framework";
+@import './views/app';
 
+/**
+ * 1. Insane line-height makes it easier to notice when components are relying
+ *    on styles inherited from body.
+ */
 body {
-  background-color: green;
+  background: #ffffff;
+  line-height: 40px; /* 1 */
 }
