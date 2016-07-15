@@ -1,4 +1,7 @@
 
+export * from './guideCodeViewer/GuideCodeViewer.jsx';
+export { default as GuideCodeViewer } from './guideCodeViewer/GuideCodeViewer.jsx';
+
 export * from './guideNav/GuideNav.jsx';
 export { default as GuideNav } from './guideNav/GuideNav.jsx';
 

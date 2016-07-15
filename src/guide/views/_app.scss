@@ -1,4 +1,5 @@
 
+@import "../variables";
 @import "./home/homeView";
 
 .guide {
@@ -9,4 +10,9 @@
 .guideContent {
   flex: 1 1 auto;
   padding-top: 100px;
+  transition: padding-right 0.2s ease;
+
+  &.is-code-viewer-open {
+    padding-right: $guideCodeViewerWidth;
+  }
 }

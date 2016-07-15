@@ -29,7 +29,7 @@ export default class TopNavExample extends Component {
       >
         <GuidePageSection
           title="Basic example"
-          markup={topNav1Html}
+          html={topNav1Html}
           js={topNav1Js}
         >
           Here's a description of this example.
@@ -38,7 +38,7 @@ export default class TopNavExample extends Component {
 
         <GuidePageSection
           title="Dangerous modifier"
-          markup={topNav2Html}
+          html={topNav2Html}
         >
           This is an example of a dangerously-red rectangle.
         </GuidePageSection>

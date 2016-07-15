@@ -4,11 +4,14 @@ import React, {
   PropTypes,
 } from 'react';
 
+import classNames from 'classnames';
+
 import {
   Routes,
 } from '../services';
 
 import {
+  GuideCodeViewer,
   GuideNav,
 } from '../components';
 
@@ -23,12 +26,23 @@ export default class AppView extends Component {
 
     this.onClickNavItem = this.onClickNavItem.bind(this);
     this.onToggleNav = this.onToggleNav.bind(this);
+    this.onCloseCodeViewer = this.onCloseCodeViewer.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      openCodeViewer: this.props.openCodeViewer,
+    };
   }
 
   onClickNavItem() {
     this.setState({
       isNavOpen: false,
     });
+  }
+
+  onCloseCodeViewer() {
+    this.props.closeCodeViewer();
   }
 
   onToggleNav() {
@@ -38,6 +52,10 @@ export default class AppView extends Component {
   }
 
   render() {
+    const contentClasses = classNames('guideContent', {
+      'is-code-viewer-open': this.props.isCodeViewerOpen,
+    });
+
     return (
       <div className="guide">
         <GuideNav
@@ -46,16 +64,37 @@ export default class AppView extends Component {
           onClickNavItem={this.onClickNavItem}
           items={Routes.components}
         />
-        <div className="guideContent">
+
+        <div className={contentClasses}>
           {this.props.children}
         </div>
+
+        <GuideCodeViewer
+          isOpen={this.props.isCodeViewerOpen}
+          onClose={this.onCloseCodeViewer}
+          title={this.props.code.title}
+          html={this.props.code.html}
+          js={this.props.code.js}
+        />
       </div>
     );
   }
 
 }
 
+AppView.childContextTypes = {
+  openCodeViewer: PropTypes.func,
+};
+
 AppView.propTypes = {
   children: PropTypes.any,
   routes: PropTypes.array.isRequired,
+  openCodeViewer: PropTypes.func,
+  closeCodeViewer: PropTypes.func,
+  isCodeViewerOpen: PropTypes.bool,
+  code: PropTypes.object,
+};
+
+AppView.defaultProps = {
+  code: {},
 };

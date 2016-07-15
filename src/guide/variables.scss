@@ -1,3 +1,22 @@
 
-$guideSideNavWidth: 400px;
 $guideLineHeight: 24px;
+$guideNavHeight: 60px;
+$guideSideNavWidth: 400px;
+$guideCodeViewerWidth: 700px;
+
+@mixin scrollbar($color: rgba(#454D58, 0.4)) {
+  &::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}

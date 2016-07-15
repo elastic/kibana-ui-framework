@@ -17,6 +17,8 @@ export default class GuidePageSection extends Component {
 
   constructor(props) {
     super(props);
+
+    this.onClickSource = this.onClickSource.bind(this);
   }
 
   componentDidMount() {
@@ -42,8 +44,15 @@ export default class GuidePageSection extends Component {
     GuidePageSection.count--;
   }
 
+  onClickSource() {
+    this.context.openCodeViewer({
+      title: this.props.title,
+      html: this.props.html,
+      js: this.props.js,
+    });
+  }
+
   render() {
-    // TODO: Add source code viewer.
     return (
       <div
         id={slugify(this.props.title)}
@@ -53,14 +62,17 @@ export default class GuidePageSection extends Component {
           <div className="guidePageSection__title">
             {this.props.title}
           </div>
-          <div>Src</div>
+          <div
+            className="guidePageSection__sourceButton fa fa-code"
+            onClick={this.onClickSource}
+          />
         </div>
 
         <div>
           {this.props.children}
         </div>
 
-        <Html>{this.props.markup}</Html>
+        <Html>{this.props.html}</Html>
       </div>
     );
   }
@@ -70,9 +82,13 @@ export default class GuidePageSection extends Component {
 GuidePageSection.count = 0;
 GuidePageSection.SCRIPT_ID = 'EXAMPLE_SCRIPT';
 
+GuidePageSection.contextTypes = {
+  openCodeViewer: PropTypes.func,
+};
+
 GuidePageSection.propTypes = {
   title: PropTypes.string,
-  markup: PropTypes.string,
+  html: PropTypes.string,
   js: PropTypes.string,
   children: PropTypes.any,
 };

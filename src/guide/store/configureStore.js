@@ -10,6 +10,8 @@ import {
   routerReducer,
 } from 'react-router-redux';
 
+import codeViewerReducer from './reducers/codeViewerReducer';
+
 /**
  * @param {Object} initialState An object defining the application's initial
  * state.
@@ -18,6 +20,7 @@ export default function configureStore(initialState) {
   function rootReducer(state = {}, action) {
     return {
       routing: routerReducer(state.routing, action),
+      codeViewer: codeViewerReducer(state.codeViewer, action),
     };
   }
 
