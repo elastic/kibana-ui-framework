@@ -43,7 +43,7 @@ const GuideNav = props => {
           to="/"
           onClick={props.onClickNavItem}
         >
-          Kibana UI Framework
+          Kibana UI Framework <span className="guideNav__version">{props.version}</span>
         </Link>
       </div>
 
@@ -58,6 +58,7 @@ GuideNav.propTypes = {
   isNavOpen: PropTypes.bool,
   onToggleNav: PropTypes.func,
   onClickNavItem: PropTypes.func,
+  version: PropTypes.string,
   items: PropTypes.array,
 };
 

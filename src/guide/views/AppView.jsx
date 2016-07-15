@@ -15,6 +15,9 @@ import {
   GuideNav,
 } from '../components';
 
+// Inject version into header.
+const pkg = require('json!../../../package.json');
+
 export default class AppView extends Component {
 
   constructor(props) {
@@ -59,14 +62,13 @@ export default class AppView extends Component {
       'is-code-viewer-open': this.props.isCodeViewerOpen,
     });
 
-    // TODO: Inject package.json version into header title.
-
     return (
       <div className="guide">
         <GuideNav
           isNavOpen={this.state.isNavOpen}
           onToggleNav={this.onToggleNav}
           onClickNavItem={this.onClickNavItem}
+          version={pkg.version}
           items={Routes.components}
         />
 
