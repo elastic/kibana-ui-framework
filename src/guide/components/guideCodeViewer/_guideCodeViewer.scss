@@ -5,9 +5,8 @@
   right: 0;
   bottom: 0;
   width: $guideCodeViewerWidth;
-  border-left: 1px solid #d6d6d6;
   padding: 40px 20px;
-  background-color: #fbfbfb;
+  background-color: white;
   transform: translateX($guideCodeViewerWidth);
   transition: transform 0.2s ease;
   overflow: auto;

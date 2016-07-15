@@ -1,8 +1,14 @@
 
 .guidePageSideNav {
   position: fixed;
+  top: 100px;
+  left: 0;
+  bottom: 0;
   width: $guideSideNavWidth;
-  padding: 0 20px 0 80px;
+  padding: 0 20px 30px 80px;
+  overflow: auto;
+
+  @include scrollbar;
 }
 
   .guidePageSideNav__title {
