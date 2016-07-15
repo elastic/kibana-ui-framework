@@ -1,4 +1,12 @@
 
 .topNav {
+  padding: 10px;
+  height: 800px;
   background: gray;
+  color: white;
+}
+
+.topNav--danger {
+  background: red;
+  color: yellow;
 }
