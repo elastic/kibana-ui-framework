@@ -8,6 +8,11 @@ export default {
     slug,
   }),
 
+  updateCodeViewer: slug => ({
+    type: ActionTypes.UPDATE_CODE_VIEWER,
+    slug,
+  }),
+
   closeCodeViewer: () => ({
     type: ActionTypes.CLOSE_CODE_VIEWER,
   }),

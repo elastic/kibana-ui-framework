@@ -16,6 +16,15 @@ export default function codeViewerReducer(state = defaultState, action) {
       });
     }
 
+    case ActionTypes.UPDATE_CODE_VIEWER: {
+      if (state.isOpen) {
+        return Object.assign({}, state, {
+          code: state.codesBySlug[action.slug],
+        });
+      }
+      return state;
+    }
+
     case ActionTypes.CLOSE_CODE_VIEWER: {
       return Object.assign({}, state, {
         isOpen: false,

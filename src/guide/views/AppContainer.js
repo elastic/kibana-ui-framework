@@ -18,6 +18,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   const actions = {
     openCodeViewer: CodeViewerActions.openCodeViewer,
+    updateCodeViewer: CodeViewerActions.updateCodeViewer,
     closeCodeViewer: CodeViewerActions.closeCodeViewer,
     registerCode: CodeViewerActions.registerCode,
     unregisterCode: CodeViewerActions.unregisterCode,

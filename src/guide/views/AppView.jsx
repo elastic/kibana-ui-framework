@@ -32,6 +32,7 @@ export default class AppView extends Component {
   getChildContext() {
     return {
       openCodeViewer: this.props.openCodeViewer,
+      updateCodeViewer: this.props.updateCodeViewer,
       registerCode: this.props.registerCode,
       unregisterCode: this.props.unregisterCode,
     };
@@ -88,6 +89,7 @@ export default class AppView extends Component {
 
 AppView.childContextTypes = {
   openCodeViewer: PropTypes.func,
+  updateCodeViewer: PropTypes.func,
   registerCode: PropTypes.func,
   unregisterCode: PropTypes.func,
 };
@@ -96,6 +98,7 @@ AppView.propTypes = {
   children: PropTypes.any,
   routes: PropTypes.array.isRequired,
   openCodeViewer: PropTypes.func,
+  updateCodeViewer: PropTypes.func,
   closeCodeViewer: PropTypes.func,
   registerCode: PropTypes.func,
   unregisterCode: PropTypes.func,

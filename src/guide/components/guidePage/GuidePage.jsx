@@ -21,12 +21,14 @@ export default class GuidePage extends Component {
     this.onClickLink = this.onClickLink.bind(this);
   }
 
-  onClickLink(id) {
+  onClickLink(slug) {
     // Scroll to element.
-    // TODO: Load code in code viewer, too.
     $('html, body').animate({
-      scrollTop: $(`#${id}`).offset().top - 100
+      scrollTop: $(`#${slug}`).offset().top - 100
     }, 250);
+
+    // Load in code viewer.
+    this.context.updateCodeViewer(slug);
   }
 
   renderSideNavMenu() {
@@ -35,7 +37,7 @@ export default class GuidePage extends Component {
       return (
         <GuidePageSideNavItem
           key={index}
-          id={slugify(section.props.title)}
+          slug={slugify(section.props.title)}
           onClick={this.onClickLink}
         >
           {section.props.title}
@@ -59,6 +61,10 @@ export default class GuidePage extends Component {
   }
 
 }
+
+GuidePage.contextTypes = {
+  updateCodeViewer: PropTypes.func,
+};
 
 GuidePage.propTypes = {
   children: PropTypes.any,

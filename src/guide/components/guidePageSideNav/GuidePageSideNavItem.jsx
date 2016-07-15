@@ -13,7 +13,7 @@ export default class GuidePageSideNavItem extends Component {
   }
 
   onClick() {
-    this.props.onClick(this.props.id);
+    this.props.onClick(this.props.slug);
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class GuidePageSideNavItem extends Component {
 }
 
 GuidePageSideNavItem.propTypes = {
-  id: PropTypes.string,
+  slug: PropTypes.string,
   children: PropTypes.any,
   onClick: PropTypes.func,
 };
