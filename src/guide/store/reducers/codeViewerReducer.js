@@ -3,6 +3,7 @@ import ActionTypes from '../../actions/ActionTypes';
 
 const defaultState = {
   isOpen: false,
+  codesBySlug: {},
   code: undefined,
 };
 
@@ -11,13 +12,33 @@ export default function codeViewerReducer(state = defaultState, action) {
     case ActionTypes.OPEN_CODE_VIEWER: {
       return Object.assign({}, state, {
         isOpen: true,
-        code: action.code,
+        code: state.codesBySlug[action.slug],
       });
     }
 
     case ActionTypes.CLOSE_CODE_VIEWER: {
       return Object.assign({}, state, {
         isOpen: false,
+        code: undefined,
+      });
+    }
+
+    case ActionTypes.REGISTER_CODE: {
+      const codesBySlug = Object.assign({}, state.codesBySlug, {
+        [action.code.slug]: action.code,
+      });
+
+      return Object.assign({}, state, {
+        codesBySlug
+      });
+    }
+
+    case ActionTypes.UNREGISTER_CODE: {
+      const codesBySlug = Object.assign({}, state.codesBySlug);
+      delete codesBySlug[action.code.slug];
+
+      return Object.assign({}, state, {
+        codesBySlug
       });
     }
 

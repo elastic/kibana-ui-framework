@@ -5,10 +5,10 @@
   right: 0;
   bottom: 0;
   width: $guideCodeViewerWidth;
-  padding: 40px 20px;
+  padding: 40px 20px 40px 0;
   background-color: white;
   transform: translateX($guideCodeViewerWidth);
-  transition: transform 0.2s ease;
+  transition: transform $guideCodeViewerTransition;
   overflow: auto;
 
   @include scrollbar;

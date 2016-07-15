@@ -32,6 +32,8 @@ export default class AppView extends Component {
   getChildContext() {
     return {
       openCodeViewer: this.props.openCodeViewer,
+      registerCode: this.props.registerCode,
+      unregisterCode: this.props.unregisterCode,
     };
   }
 
@@ -55,6 +57,8 @@ export default class AppView extends Component {
     const contentClasses = classNames('guideContent', {
       'is-code-viewer-open': this.props.isCodeViewerOpen,
     });
+
+    // TODO: Inject package.json version into header title.
 
     return (
       <div className="guide">
@@ -84,6 +88,8 @@ export default class AppView extends Component {
 
 AppView.childContextTypes = {
   openCodeViewer: PropTypes.func,
+  registerCode: PropTypes.func,
+  unregisterCode: PropTypes.func,
 };
 
 AppView.propTypes = {
@@ -91,6 +97,8 @@ AppView.propTypes = {
   routes: PropTypes.array.isRequired,
   openCodeViewer: PropTypes.func,
   closeCodeViewer: PropTypes.func,
+  registerCode: PropTypes.func,
+  unregisterCode: PropTypes.func,
   isCodeViewerOpen: PropTypes.bool,
   code: PropTypes.object,
 };

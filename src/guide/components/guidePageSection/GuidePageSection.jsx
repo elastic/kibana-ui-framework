@@ -21,7 +21,7 @@ export default class GuidePageSection extends Component {
     this.onClickSource = this.onClickSource.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // NOTE: This will cause a race condition if a GuidePage adds and removes
     // GuidePageSection instances during its lifetime (e.g. if a user is allowed
     // to click "add" and "delete" buttons to add and remove GuidePageSections).
@@ -33,29 +33,25 @@ export default class GuidePageSection extends Component {
     // is instantiated, and then they're all removed when a GuidePage is
     // removed, we won't encounter this race condition.
     if (this.props.js) {
-      this.id = `${GuidePageSection.SCRIPT_ID}${GuidePageSection.count}`;
+      this.scriptId = `${GuidePageSection.SCRIPT_ID}${GuidePageSection.count}`;
       GuidePageSection.count++;
-      jsInjector.inject(this.props.js, this.id);
+      jsInjector.inject(this.props.js, this.scriptId);
     }
   }
 
   componentWillUnmount() {
-    jsInjector.remove(this.id);
+    jsInjector.remove(this.scriptId);
     GuidePageSection.count--;
   }
 
   onClickSource() {
-    this.context.openCodeViewer({
-      title: this.props.title,
-      html: this.props.html,
-      js: this.props.js,
-    });
+    this.context.openCodeViewer(this.props.slug);
   }
 
   render() {
     return (
       <div
-        id={slugify(this.props.title)}
+        id={this.props.slug}
         className="guidePageSection"
       >
         <div className="guidePageSection__header">
@@ -88,6 +84,7 @@ GuidePageSection.contextTypes = {
 
 GuidePageSection.propTypes = {
   title: PropTypes.string,
+  slug: PropTypes.string,
   html: PropTypes.string,
   js: PropTypes.string,
   children: PropTypes.any,

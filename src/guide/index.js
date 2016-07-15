@@ -78,3 +78,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('guide')
 );
+
+// TODO:
+// - ESlint with AirBnB rules
+// - Angular unit tests
+// - Code coverage reporter

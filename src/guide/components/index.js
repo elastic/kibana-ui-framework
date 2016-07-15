@@ -2,6 +2,9 @@
 export * from './guideCodeViewer/GuideCodeViewer.jsx';
 export { default as GuideCodeViewer } from './guideCodeViewer/GuideCodeViewer.jsx';
 
+export * from './guideExample/GuideExample.jsx';
+export { default as GuideExample } from './guideExample/GuideExample.jsx';
+
 export * from './guideNav/GuideNav.jsx';
 export { default as GuideNav } from './guideNav/GuideNav.jsx';
 

@@ -19,6 +19,8 @@ function mapDispatchToProps(dispatch) {
   const actions = {
     openCodeViewer: CodeViewerActions.openCodeViewer,
     closeCodeViewer: CodeViewerActions.closeCodeViewer,
+    registerCode: CodeViewerActions.registerCode,
+    unregisterCode: CodeViewerActions.unregisterCode,
   };
 
   return bindActionCreators(actions, dispatch);

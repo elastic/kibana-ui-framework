@@ -1,53 +1,22 @@
 
-import React, {
-  Component,
-  PropTypes,
-} from 'react';
-
-import Html from '../../components/html/Html.jsx';
-
 import {
-  GuidePage,
-  GuidePageSection,
+  GuideExample,
 } from '../../components';
 
-const topNav1Html = require('./_topNav1.html');
-const topNav1Js = require('raw!./_topNav1.js');
-
-const topNav2Html = require('./_topNav2.html');
-
-export default class TopNavExample extends Component {
+export default class TopNavExample extends GuideExample {
 
   constructor(props) {
-    super(props);
+    super(props, [{
+      title: 'Basic example',
+      description: `Here's a description of this example.`,
+      html: require('./_topNav1.html'),
+      js: require('raw!./_topNav1.js'),
+    }, {
+      title: 'Dangerous modifier',
+      description: `This is an example of a dangerously-red rectangle.`,
+      html: require('./_topNav2.html'),
+    }]);
   }
-
-  render() {
-    return (
-      <GuidePage
-        title={this.props.route.name}
-      >
-        <GuidePageSection
-          title="Basic example"
-          html={topNav1Html}
-          js={topNav1Js}
-        >
-          Here's a description of this example.
-        </GuidePageSection>
-
-
-        <GuidePageSection
-          title="Dangerous modifier"
-          html={topNav2Html}
-        >
-          This is an example of a dangerously-red rectangle.
-        </GuidePageSection>
-      </GuidePage>
-    );
-  }
-
 }
 
-TopNavExample.propTypes = {
-  route: PropTypes.object.isRequired,
-};
+TopNavExample.propTypes = Object.assign({}, GuideExample.propTypes);

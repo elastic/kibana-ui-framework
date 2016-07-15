@@ -23,6 +23,7 @@ export default class GuidePage extends Component {
 
   onClickLink(id) {
     // Scroll to element.
+    // TODO: Load code in code viewer, too.
     $('html, body').animate({
       scrollTop: $(`#${id}`).offset().top - 100
     }, 250);
