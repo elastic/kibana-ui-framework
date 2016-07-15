@@ -10,3 +10,16 @@
   flex: 1 1 auto;
   padding-top: 100px;
 }
+
+.guideSideNav {
+  width: 400px;
+  padding: 0 20px 0 80px;
+}
+
+  .guideSideNav__title {
+    padding-bottom: 10px;
+    font-size: 22px;
+    line-height: $guideLineHeight;
+    border-bottom: 1px solid #d6d6d6;
+    opacity: 0.8;
+  }

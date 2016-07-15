@@ -3,6 +3,10 @@ import React, {
   PropTypes,
 } from 'react';
 
+import {
+  Link,
+} from 'react-router';
+
 import classNames from 'classnames';
 
 const GuideNav = props => {
@@ -14,6 +18,19 @@ const GuideNav = props => {
     'is-menu-button-pinned': props.isNavOpen,
   });
 
+  const navItems = props.items.map((item, index) => {
+    return (
+      <Link
+        key={index}
+        className="guideNavItem"
+        to={item.path}
+        onClick={props.onClickNavItem}
+      >
+        {item.name}
+      </Link>
+    );
+  });
+
   return (
     <div className={classes}>
       <div className="guideNav__header">
@@ -21,9 +38,17 @@ const GuideNav = props => {
           className={buttonClasses}
           onClick={props.onToggleNav}
         />
-        <div className="guideNav__title">
+        <Link
+          className="guideNav__title"
+          to="/"
+          onClick={props.onClickNavItem}
+        >
           Kibana UI Framework
-        </div>
+        </Link>
+      </div>
+
+      <div className="guideNavItems">
+        {navItems}
       </div>
     </div>
   );
@@ -32,6 +57,8 @@ const GuideNav = props => {
 GuideNav.propTypes = {
   isNavOpen: PropTypes.bool,
   onToggleNav: PropTypes.func,
+  onClickNavItem: PropTypes.func,
+  items: PropTypes.array,
 };
 
 export default GuideNav;

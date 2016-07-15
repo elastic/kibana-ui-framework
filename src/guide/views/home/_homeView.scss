@@ -1,4 +1,6 @@
 
+@import "../../variables";
+
 .guideHome {
   display: flex;
   justify-content: center;
@@ -12,7 +14,7 @@
     margin-bottom: 20px;
     border-radius: 3px;
     background-color: #e8e8e8;
-    line-height: 24px;
+    line-height: $guideLineHeight;
   }
 
   .guideHome__panelTitle {

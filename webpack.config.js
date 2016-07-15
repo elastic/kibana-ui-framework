@@ -30,6 +30,13 @@ module.exports = {
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass'],
       exclude: /node_modules/
+    }, {
+      test: /\.html$/,
+      loaders: ['html'],
+      exclude: /node_modules/
+    }, {
+      test: require.resolve('jquery'),
+      loader: 'expose?jQuery!expose?$'
     }]
   }
 };

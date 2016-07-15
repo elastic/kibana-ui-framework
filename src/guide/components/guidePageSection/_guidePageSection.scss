@@ -1,0 +1,21 @@
+
+@import "../../variables";
+
+.guidePageSection {
+
+}
+
+  .guidePageSection__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+    line-height: $guideLineHeight;
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  .guidePageSection__title {
+    font-size: 18px;
+    font-weight: 700;
+  }

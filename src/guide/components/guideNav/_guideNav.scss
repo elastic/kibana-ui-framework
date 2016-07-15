@@ -1,5 +1,6 @@
 .guideNav {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -8,9 +9,10 @@
   background-color: #e8488b;
   color: #ffffff;
   box-shadow:
-    inset 0 -20px 30px rgba(#5a1029, 0.2),
+    inset 0 -20px 18px rgba(#5a1029, 0.2),
     inset 0 -5px 4px rgba(#5a1029, 0.3);
   transition: height 0.3s ease;
+  overflow: hidden;
 
   &.is-guide-nav-open {
     height: 100%;
@@ -41,5 +43,19 @@
     }
 
     .guideNav__title {
+      color: white;
+      text-decoration: none;
       font-size: 18px;
     }
+
+  .guideNavItem {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: rgba(black, 0.15);
+    }
+  }

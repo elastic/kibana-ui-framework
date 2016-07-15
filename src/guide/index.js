@@ -19,7 +19,9 @@ import AppContainer from './views/AppContainer';
 import HomeView from './views/home/HomeView.jsx';
 import NotFoundView from './views/notFound/NotFoundView.jsx';
 
-import Route from './services/route/Route';
+import {
+  Routes,
+} from './services';
 
 const store = configureStore();
 const browserHistory = useRouterHistory(createHashHistory)({
@@ -27,7 +29,7 @@ const browserHistory = useRouterHistory(createHashHistory)({
 });
 const history = syncHistoryWithStore(browserHistory, store);
 
-const childRoutes = Route.getAppRoutes();
+const childRoutes = Routes.getAppRoutes();
 childRoutes.push({
   path: '*',
   component: NotFoundView,

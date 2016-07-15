@@ -4,7 +4,13 @@ import React, {
   PropTypes,
 } from 'react';
 
-import GuideNav from '../components/guideNav/GuideNav.jsx';
+import {
+  Routes,
+} from '../services';
+
+import {
+  GuideNav,
+} from '../components';
 
 export default class AppView extends Component {
 
@@ -15,7 +21,14 @@ export default class AppView extends Component {
       isNavOpen: false,
     };
 
+    this.onClickNavItem = this.onClickNavItem.bind(this);
     this.onToggleNav = this.onToggleNav.bind(this);
+  }
+
+  onClickNavItem() {
+    this.setState({
+      isNavOpen: false,
+    });
   }
 
   onToggleNav() {
@@ -30,6 +43,8 @@ export default class AppView extends Component {
         <GuideNav
           isNavOpen={this.state.isNavOpen}
           onToggleNav={this.onToggleNav}
+          onClickNavItem={this.onClickNavItem}
+          items={Routes.components}
         />
         <div className="guideContent">
           {this.props.children}
