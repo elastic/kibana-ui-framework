@@ -11,8 +11,10 @@ import {
   GuidePageSection,
 } from '../../components';
 
-const markup = require('./topNav.html');
-const js = require('raw!./topNav.js');
+const topNav1Html = require('./_topNav1.html');
+const topNav1Js = require('raw!./_topNav1.js');
+
+const topNav2Html = require('./_topNav2.html');
 
 export default class TopNavExample extends Component {
 
@@ -27,10 +29,18 @@ export default class TopNavExample extends Component {
       >
         <GuidePageSection
           title="Basic example"
-          markup={markup}
-          js={js}
+          markup={topNav1Html}
+          js={topNav1Js}
         >
-          Here's a description of this example
+          Here's a description of this example.
+        </GuidePageSection>
+
+
+        <GuidePageSection
+          title="Dangerous modifier"
+          markup={topNav2Html}
+        >
+          This is an example of a dangerously-red rectangle.
         </GuidePageSection>
       </GuidePage>
     );
