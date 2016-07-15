@@ -14,5 +14,9 @@
 
   &.is-code-viewer-open {
     padding-right: $guideCodeViewerWidth;
+
+    @include whenNarrowerThan($normalBreakpoint) {
+      padding-right: $guideCodeViewerSmallWidth;
+    }
   }
 }

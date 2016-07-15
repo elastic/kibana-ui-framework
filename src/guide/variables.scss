@@ -2,7 +2,23 @@
 $guideLineHeight: 24px;
 $guideNavHeight: 60px;
 $guideSideNavWidth: 400px;
+$guideSideNavSmallWidth: 220px;
 $guideCodeViewerWidth: 700px;
+$guideCodeViewerSmallWidth: 400px;
+
+$normalBreakpoint: 1900px;
+
+@mixin whenNarrowerThan($browserWidth) {
+  @media only screen and (max-width: #{$browserWidth}) {
+    @content;
+  }
+}
+
+@mixin whenWiderThan($browserWidth) {
+  @media only screen and (min-width: #{$browserWidth}) {
+    @content;
+  }
+}
 
 @mixin scrollbar($color: rgba(#454D58, 0.4)) {
   &::-webkit-scrollbar {

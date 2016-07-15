@@ -9,6 +9,11 @@
   overflow: auto;
 
   @include scrollbar;
+
+  @include whenNarrowerThan($normalBreakpoint) {
+    padding: 0 20px 30px 20px;
+    width: $guideSideNavSmallWidth;
+  }
 }
 
   .guidePageSideNav__title {

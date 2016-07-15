@@ -13,6 +13,10 @@
 
   @include scrollbar;
 
+  @include whenNarrowerThan($normalBreakpoint) {
+    width: $guideCodeViewerSmallWidth;
+  }
+
   &.is-code-viewer-open {
     transform: translateX(0);
   }
