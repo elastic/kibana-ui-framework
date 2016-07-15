@@ -10,9 +10,19 @@ const defaultState = {
 export default function codeViewerReducer(state = defaultState, action) {
   switch (action.type) {
     case ActionTypes.OPEN_CODE_VIEWER: {
+      const newCode = state.codesBySlug[action.slug];
+
+      if (state.code === newCode) {
+        // If we are opening the existing code, then close the viewer.
+        return Object.assign({}, state, {
+          isOpen: false,
+          code: undefined,
+        });
+      }
+
       return Object.assign({}, state, {
         isOpen: true,
-        code: state.codesBySlug[action.slug],
+        code: newCode,
       });
     }
 
