@@ -1,4 +1,4 @@
 
 $('#test').click(() => {
-  console.log('hiya!')
+  $('#test').attr('style', 'background-color: black');
 });

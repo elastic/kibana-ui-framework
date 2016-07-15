@@ -21,7 +21,7 @@ export default class GuidePageSection extends Component {
     this.onClickSource = this.onClickSource.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // NOTE: This will cause a race condition if a GuidePage adds and removes
     // GuidePageSection instances during its lifetime (e.g. if a user is allowed
     // to click "add" and "delete" buttons to add and remove GuidePageSections).
@@ -35,6 +35,8 @@ export default class GuidePageSection extends Component {
     if (this.props.js) {
       this.scriptId = `${GuidePageSection.SCRIPT_ID}${GuidePageSection.count}`;
       GuidePageSection.count++;
+      // JS injection must occur _after_ the component has been mounted, so
+      // the component DOM is available for the JS to manipulate.
       jsInjector.inject(this.props.js, this.scriptId);
     }
   }

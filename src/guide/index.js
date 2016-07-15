@@ -82,4 +82,5 @@ ReactDOM.render(
 // TODO:
 // - ESlint with AirBnB rules
 // - Angular unit tests
-// - Code coverage reporter
+// - Make directories and filenames snake-cased, not camelCased
+// - .jsx not necessary (could change to .js)
