@@ -78,9 +78,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('guide')
 );
-
-// TODO:
-// - ESlint with AirBnB rules
-// - Angular unit tests
-// - Make directories and filenames snake-cased, not camelCased
-// - .jsx not necessary (could change to .js)
