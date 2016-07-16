@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 
 import {
-  slugify,
+  Slugify,
 } from '../../services';
 
 import {
@@ -19,7 +19,7 @@ export default class GuideExample extends Component {
     super(props);
 
     this.sections = sections.map(section => Object.assign({}, section, {
-      slug: slugify(section.title),
+      slug: Slugify.one(section.title),
     }));
   }
 

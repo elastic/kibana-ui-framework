@@ -1,7 +1,7 @@
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import AppView from './AppView.jsx';
+import AppView from './app_view.jsx';
 
 import {
   CodeViewerActions,

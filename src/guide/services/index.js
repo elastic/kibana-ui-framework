@@ -1,9 +1,9 @@
 
-export * from './jsInjector/jsInjector';
-export { default as jsInjector } from './jsInjector/jsInjector';
+export * from './js_injector/js_injector';
+export { default as JsInjector } from './js_injector/js_injector';
 
-export * from './routes/Routes';
-export { default as Routes } from './routes/Routes';
+export * from './routes/routes';
+export { default as Routes } from './routes/routes';
 
-export * from './string/Slug';
-export { default as Slug } from './string/Slug';
+export * from './string/slugify';
+export { default as Slugify } from './string/slugify';

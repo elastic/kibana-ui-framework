@@ -10,7 +10,7 @@ import {
   routerReducer,
 } from 'react-router-redux';
 
-import codeViewerReducer from './reducers/codeViewerReducer';
+import codeViewerReducer from './reducers/code_viewer_reducer';
 
 /**
  * @param {Object} initialState An object defining the application's initial

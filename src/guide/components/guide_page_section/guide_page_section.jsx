@@ -5,8 +5,7 @@ import React, {
 } from 'react';
 
 import {
-  jsInjector,
-  slugify,
+  JsInjector,
 } from '../../services';
 
 import {
@@ -37,12 +36,12 @@ export default class GuidePageSection extends Component {
       GuidePageSection.count++;
       // JS injection must occur _after_ the component has been mounted, so
       // the component DOM is available for the JS to manipulate.
-      jsInjector.inject(this.props.js, this.scriptId);
+      JsInjector.inject(this.props.js, this.scriptId);
     }
   }
 
   componentWillUnmount() {
-    jsInjector.remove(this.scriptId);
+    JsInjector.remove(this.scriptId);
     GuidePageSection.count--;
   }
 
