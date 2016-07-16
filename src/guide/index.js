@@ -12,12 +12,12 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import createHashHistory from 'history/lib/createHashHistory';
 
 // Store.
-import configureStore from './store/configureStore';
+import configureStore from './store/configure_store';
 
 // Guide views.
-import AppContainer from './views/AppContainer';
-import HomeView from './views/home/HomeView.jsx';
-import NotFoundView from './views/notFound/NotFoundView.jsx';
+import AppContainer from './views/app_container';
+import HomeView from './views/home/home_view.jsx';
+import NotFoundView from './views/not_found/not_found_view.jsx';
 
 import {
   Routes,

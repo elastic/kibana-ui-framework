@@ -1,9 +1,10 @@
 
+
 /**
  * Lowercases input and replaces spaces with hyphens:
  * e.g. 'GridView Example' -> 'gridview-example'
  */
-export function slugify(str) {
+function one(str) {
   const parts = str
   .toLowerCase()
   .replace(/[-]+/g, ' ')
@@ -12,10 +13,15 @@ export function slugify(str) {
   return parts.join('-');
 }
 
-export function slugifyEach(items, src, dest) {
+function each(items, src, dest) {
   return items.map(item => {
     const _item = item;
-    _item[dest] = slugify(_item[src]);
+    _item[dest] = one(_item[src]);
     return _item;
   });
 }
+
+export default {
+  one,
+  each,
+};

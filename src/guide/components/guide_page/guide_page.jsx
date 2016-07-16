@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 
 import {
-  slugify,
+  Slugify,
 } from '../../services';
 
 import {
@@ -37,7 +37,7 @@ export default class GuidePage extends Component {
       return (
         <GuidePageSideNavItem
           key={index}
-          slug={slugify(section.props.title)}
+          slug={Slugify.one(section.props.title)}
           onClick={this.onClickLink}
         >
           {section.props.title}

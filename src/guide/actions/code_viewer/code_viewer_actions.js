@@ -1,5 +1,5 @@
 
-import ActionTypes from '../ActionTypes';
+import ActionTypes from '../action_types';
 
 export default {
 

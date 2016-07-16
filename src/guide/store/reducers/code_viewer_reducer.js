@@ -1,5 +1,5 @@
 
-import ActionTypes from '../../actions/ActionTypes';
+import ActionTypes from '../../actions/action_types';
 
 const defaultState = {
   isOpen: false,

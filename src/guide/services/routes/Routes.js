@@ -1,8 +1,8 @@
 
-import { slugifyEach } from '../string/Slug';
+import Slugify from '../string/slugify';
 
 import TopNavExample
-  from '../../views/topNav/TopNavExample.jsx';
+  from '../../views/top_nav/top_nav_example.jsx';
 
 // Component route names should match the component name exactly.
 const components = [{
@@ -11,7 +11,7 @@ const components = [{
 }];
 
 export default {
-  components: slugifyEach(components, 'name', 'path'),
+  components: Slugify.each(components, 'name', 'path'),
   getAppRoutes: function getAppRoutes() {
     const list = this.components;
     return list.slice(0);
