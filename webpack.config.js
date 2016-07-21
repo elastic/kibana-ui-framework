@@ -32,7 +32,7 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.html$/,
-      loaders: ['html'],
+      loader: 'raw!html-minify',
       exclude: /node_modules/
     }, {
       test: require.resolve('jquery'),
