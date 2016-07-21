@@ -70,6 +70,7 @@ GuideExample.propTypes = {
   route: PropTypes.object.isRequired,
   sections: PropTypes.arrayOf(React.PropTypes.shape({
     title: React.PropTypes.string.isRequired,
+    description: React.PropTypes.any,
     html: React.PropTypes.string.isRequired,
     js: React.PropTypes.string,
   })),

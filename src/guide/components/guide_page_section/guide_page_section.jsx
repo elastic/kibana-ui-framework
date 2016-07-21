@@ -36,6 +36,16 @@ export default class GuidePageSection extends Component {
       // the component DOM is available for the JS to manipulate.
       JsInjector.inject(this.props.js, this.scriptId);
     }
+
+    function trimChildren(node) {
+      if (node.children.length > 0) {
+        [...node.children].forEach(trimChildren);
+        return;
+      }
+      node.textContent = node.textContent.trim();
+    }
+
+    trimChildren(this.refs.html);
   }
 
   componentWillUnmount() {
@@ -80,6 +90,7 @@ export default class GuidePageSection extends Component {
         {description}
 
         <div
+          ref="html"
           className={exampleClasses}
           dangerouslySetInnerHTML={{ __html: this.props.html }}
         />
