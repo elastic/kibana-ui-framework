@@ -19,6 +19,3 @@ export { default as GuidePageSideNav } from './guide_page_side_nav/guide_page_si
 
 export * from './guide_page_side_nav/guide_page_side_nav_item.jsx';
 export { default as GuidePageSideNavItem } from './guide_page_side_nav/guide_page_side_nav_item.jsx';
-
-export * from './html/html.jsx';
-export { default as Html } from './html/html.jsx';
