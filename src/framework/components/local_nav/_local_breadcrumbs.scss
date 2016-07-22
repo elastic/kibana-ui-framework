@@ -1,0 +1,38 @@
+
+/**
+ * 1. Breadcrumbs are placed in the top-left corner and need to be bumped over
+ *    a bit.
+ */
+.localBreadcrumbs {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: $localNavSideSpacing; /* 1 */
+}
+
+  .localBreadcrumb {
+    & + & {
+      margin-left: 6px;
+
+      &:before {
+        content: '/';
+        user-select: none;
+        margin-right: 4px;
+        color: #5a5a5a;
+      }
+    }
+  }
+
+    .localBreadcrumb__link {
+      font-size: 14px;
+      color: #5a5a5a;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .localBreadcrumb__emphasis {
+      font-weight: 700;
+    }

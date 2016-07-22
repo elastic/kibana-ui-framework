@@ -1,0 +1,32 @@
+
+.localMenu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+  .localMenuItem {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 $localNavSideSpacing;
+    font-size: 14px;
+    background-color: transparent;
+    color: #5a5a5a;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(#000000, 0.1);
+      color: #000000;
+    }
+
+    &.is-local-menu-item-selected {
+      background-color: #f6f6f6;
+    }
+  }
+
+    .localMenuItem__icon {
+      margin-right: 5px;
+      margin-bottom: -1px;
+    }
