@@ -68,7 +68,7 @@ export default class GuidePageSection extends Component {
       );
     }
 
-    const exampleClasses = classNames('guidePageSection__example', {
+    const exampleClasses = classNames({
       'guidePageSection__example--standalone': !this.props.children,
     });
 
