@@ -7,7 +7,8 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
     "build": "./node_modules/.bin/webpack -p",
-    "deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework"
+    "deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework",
+    "dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./public/framework.css"
   },
   "dependencies": {
     "babel-core": "6.10.4",

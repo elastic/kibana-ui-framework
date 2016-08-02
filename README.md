@@ -11,6 +11,7 @@ plugin's UI will fit into the overall Kibana UI.
 * Install node modules `npm install`
 * Start development server `npm start`
 * Deploy to GitHub Pages `npm run deploy`
+* Compile distributable CSS `npm run dist`
 
 ## Production
 
