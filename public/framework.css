@@ -1,0 +1,131 @@
+/**
+ * 1. Breadcrumbs are placed in the top-left corner and need to be bumped over
+ *    a bit.
+ */
+.localBreadcrumbs {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 10px;
+  /* 1 */ }
+
+.localBreadcrumb + .localBreadcrumb {
+  margin-left: 6px; }
+  .localBreadcrumb + .localBreadcrumb:before {
+    content: '/';
+    user-select: none;
+    margin-right: 4px;
+    color: #5a5a5a; }
+
+.localBreadcrumb__link {
+  font-size: 14px;
+  color: #5a5a5a;
+  text-decoration: none; }
+  .localBreadcrumb__link:hover {
+    text-decoration: underline; }
+
+.localBreadcrumb__emphasis {
+  font-weight: 700; }
+
+.localDropdown {
+  padding: 0 10px;
+  background-color: #f6f6f6; }
+
+.localMenu {
+  display: flex;
+  align-items: center;
+  height: 100%; }
+
+.localMenuItem {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #5a5a5a;
+  border: 0;
+  cursor: pointer; }
+  .localMenuItem:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000000; }
+  .localMenuItem.localMenuItem-is-selected {
+    background-color: #f6f6f6; }
+
+.localMenuItem__icon {
+  margin-right: 5px;
+  margin-bottom: -1px; }
+
+/**
+ * 1. Match height of logo in side bar, but allow it to expand to accommodate
+ *    dropdown.
+ */
+.localNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70px;
+  /* 1 */
+  background-color: #e4e4e4; }
+
+.localNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px; }
+
+.localNavRow__section {
+  height: 100%; }
+
+.localNavRow--secondary {
+  height: 38px;
+  padding: 0 10px; }
+
+.localSearch {
+  display: flex;
+  width: 100%;
+  height: 30px; }
+
+.localSearch__input {
+  flex: 1 1 100%;
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #2d2d2d;
+  border: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0; }
+
+.localSearch__button {
+  width: 43px;
+  height: 30px;
+  font-size: 14px;
+  background-color: #9c9c9c;
+  color: #ffffff;
+  border: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }
+
+.localTabs {
+  display: flex;
+  align-items: center;
+  height: 100%; }
+
+/**
+   * 1. Make sure the bottom border is flush with the bottom of the LocalNav.
+   */
+.localTab {
+  padding: 5px 0 6px 0;
+  font-size: 18px;
+  line-height: 22px;
+  /* 1 */
+  color: #2d2d2d;
+  border-bottom: 2px solid transparent;
+  text-decoration: none; }
+  .localTab.localTab-is-selected {
+    border-bottom-color: #2d2d2d; }
+  .localTab + .localTab {
+    margin-left: 8px; }
