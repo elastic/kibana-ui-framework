@@ -1,13 +1,13 @@
 
 import Slugify from '../string/slugify';
 
-import TopNavExample
-  from '../../views/top_nav/top_nav_example.jsx';
+import LocalNavExample
+  from '../../views/local_nav/local_nav_example.jsx';
 
 // Component route names should match the component name exactly.
 const components = [{
-  name: 'TopNav',
-  component: TopNavExample,
+  name: 'LocalNav',
+  component: LocalNavExample,
 }];
 
 export default {

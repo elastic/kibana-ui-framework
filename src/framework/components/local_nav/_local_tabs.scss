@@ -1,0 +1,26 @@
+
+.localTabs {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+  /**
+   * 1. Make sure the bottom border is flush with the bottom of the LocalNav.
+   */
+  .localTab {
+    padding: 5px 0 6px 0;
+    font-size: 18px;
+    line-height: 22px; /* 1 */
+    color: #2d2d2d;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+
+    &.localTab-is-selected {
+      border-bottom-color: #2d2d2d;
+    }
+
+    & + & {
+      margin-left: 8px;
+    }
+  }

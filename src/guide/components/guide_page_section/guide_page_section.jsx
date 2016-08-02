@@ -4,13 +4,11 @@ import React, {
   PropTypes,
 } from 'react';
 
+import classNames from 'classnames';
+
 import {
   JsInjector,
 } from '../../services';
-
-import {
-  Html,
-} from '../';
 
 export default class GuidePageSection extends Component {
 
@@ -38,6 +36,16 @@ export default class GuidePageSection extends Component {
       // the component DOM is available for the JS to manipulate.
       JsInjector.inject(this.props.js, this.scriptId);
     }
+
+    function trimChildren(node) {
+      if (node.children.length > 0) {
+        [...node.children].forEach(trimChildren);
+        return;
+      }
+      node.textContent = node.textContent.trim();
+    }
+
+    trimChildren(this.refs.html);
   }
 
   componentWillUnmount() {
@@ -50,6 +58,20 @@ export default class GuidePageSection extends Component {
   }
 
   render() {
+    let description;
+
+    if (this.props.children) {
+      description = (
+        <div className="guidePageSection__description">
+          {this.props.children}
+        </div>
+      );
+    }
+
+    const exampleClasses = classNames({
+      'guidePageSection__example--standalone': !this.props.children,
+    });
+
     return (
       <div
         id={this.props.slug}
@@ -65,11 +87,13 @@ export default class GuidePageSection extends Component {
           />
         </div>
 
-        <div>
-          {this.props.children}
-        </div>
+        {description}
 
-        <Html>{this.props.html}</Html>
+        <div
+          ref="html"
+          className={exampleClasses}
+          dangerouslySetInnerHTML={{ __html: this.props.html }}
+        />
       </div>
     );
   }
