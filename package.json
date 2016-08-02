@@ -8,7 +8,7 @@
     "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
     "build": "./node_modules/.bin/webpack -p",
     "deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework",
-    "dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./public/framework.css",
+    "dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./dist/framework.css",
     "preversion": "npm run dist",
     "postversion": "npm run deploy"
   },
