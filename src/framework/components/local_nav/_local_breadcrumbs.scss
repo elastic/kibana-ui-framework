@@ -21,6 +21,13 @@
         color: #5a5a5a;
       }
     }
+
+    &:last-child {
+      .localBreadcrumb__link {
+        pointer-events: none;
+        color: #2d2d2d;
+      }
+    }
   }
 
     .localBreadcrumb__link {
