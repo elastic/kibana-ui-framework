@@ -12,11 +12,17 @@
     padding: 5px 0 6px 0;
     font-size: 18px;
     line-height: 22px; /* 1 */
-    color: #2d2d2d;
+    color: #5a5a5a;
     border-bottom: 2px solid transparent;
     text-decoration: none;
 
+    &:hover,
+    &:active {
+      color: #2d2d2d;
+    }
+
     &.localTab-is-selected {
+      color: #2d2d2d;
       border-bottom-color: #2d2d2d;
     }
 
