@@ -2,4 +2,97 @@
 .localDropdown {
   padding: 0 $localNavSideSpacing;
   background-color: #f6f6f6;
+  line-height: 20px;
+}
+
+.localDropdownContent {
+  padding: 10px 15px;
+}
+
+.localDropdownPanels {
+  display: flex;
+}
+
+.localDropdownPanel {
+  flex: 1 1 0%;
+}
+
+.localDropdownPanel--left {
+  margin-right: 30px;
+}
+
+.localDropdownPanel--right {
+  margin-left: 30px;
+}
+
+.localDropdownTitle {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #000000;
+}
+
+.localDropdownSection {
+  margin-bottom: 16px;
+}
+
+.localDropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+  .localDropdownHeader__label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .localDropdownHeader__actions {
+    display: flex;
+  }
+
+  .localDropdownHeader__action {
+    color: #328CAA;
+    font-size: 12px;
+    text-decoration: none;
+
+    & + & {
+      margin-left: 10px;
+    }
+
+    &:hover,
+    &:active {
+      color: #105A73;
+    }
+  }
+
+.localDropdownInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #2d2d2d;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+}
+
+.localDropdownFormNote {
+  font-size: 14px;
+  color: #5A5A5A;
+}
+
+.localDropdownWarning {
+  margin-bottom: 16px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #2D2D2D;
+  background-color: #e4e4e4;
+}
+
+.localDropdownHelpText {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #2D2D2D;
 }
