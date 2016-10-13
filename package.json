@@ -1,12 +1,12 @@
 {
   "name": "kibana-ui-framework",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kibana UI Framework",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
-    "build": "./node_modules/.bin/webpack -p",
+    "build": "./node_modules/.bin/webpack",
     "deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework",
     "dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./dist/framework.css",
     "preversion": "npm run dist",
