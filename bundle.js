@@ -62196,8 +62196,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	console.log(__webpack_require__(721));
-	
 	exports.default = (0, _services.createExample)([{
 	  title: 'Simple',
 	  description: _react2.default.createElement(
