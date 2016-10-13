@@ -12,11 +12,15 @@ $localSearchHeight: 30px;
     padding: 5px 15px;
     font-size: 14px;
     color: #2d2d2d;
-    border: 0;
+    border: 2px solid #ffffff;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+
+    &.localSearch-is-error {
+      border-color: #e74C3c;
+    }
   }
 
   .localSearch__button {

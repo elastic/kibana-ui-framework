@@ -24,6 +24,12 @@
     &.localMenuItem-is-selected {
       background-color: #f6f6f6;
     }
+
+    &.localMenuItem-is-disabled {
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
   }
 
     .localMenuItem__icon {
