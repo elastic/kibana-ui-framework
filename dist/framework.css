@@ -17,6 +17,10 @@
     margin-right: 4px;
     color: #5a5a5a; }
 
+.localBreadcrumb:last-child .localBreadcrumb__link {
+  pointer-events: none;
+  color: #2d2d2d; }
+
 .localBreadcrumb__link {
   font-size: 14px;
   color: #5a5a5a;
@@ -29,7 +33,80 @@
 
 .localDropdown {
   padding: 0 10px;
-  background-color: #f6f6f6; }
+  background-color: #f6f6f6;
+  line-height: 20px; }
+
+.localDropdownContent {
+  padding: 10px 15px; }
+
+.localDropdownPanels {
+  display: flex; }
+
+.localDropdownPanel {
+  flex: 1 1 0%; }
+
+.localDropdownPanel--left {
+  margin-right: 30px; }
+
+.localDropdownPanel--right {
+  margin-left: 30px; }
+
+.localDropdownTitle {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #000000; }
+
+.localDropdownSection {
+  margin-bottom: 16px; }
+
+.localDropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px; }
+
+.localDropdownHeader__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000; }
+
+.localDropdownHeader__actions {
+  display: flex; }
+
+.localDropdownHeader__action {
+  color: #328CAA;
+  font-size: 12px;
+  text-decoration: none; }
+  .localDropdownHeader__action + .localDropdownHeader__action {
+    margin-left: 10px; }
+  .localDropdownHeader__action:hover, .localDropdownHeader__action:active {
+    color: #105A73; }
+
+.localDropdownInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #2d2d2d;
+  border: 2px solid #ffffff;
+  border-radius: 4px; }
+
+.localDropdownFormNote {
+  font-size: 14px;
+  color: #5A5A5A; }
+
+.localDropdownWarning {
+  margin-bottom: 16px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #2D2D2D;
+  background-color: #e4e4e4; }
+
+.localDropdownHelpText {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #2D2D2D; }
 
 .localMenu {
   display: flex;
@@ -51,6 +128,10 @@
     color: #000000; }
   .localMenuItem.localMenuItem-is-selected {
     background-color: #f6f6f6; }
+  .localMenuItem.localMenuItem-is-disabled {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none; }
 
 .localMenuItem__icon {
   margin-right: 5px;
@@ -91,11 +172,13 @@
   padding: 5px 15px;
   font-size: 14px;
   color: #2d2d2d;
-  border: 0;
+  border: 2px solid #ffffff;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
+  .localSearch__input.localSearch-is-error {
+    border-color: #e74C3c; }
 
 .localSearch__button {
   width: 43px;
@@ -122,10 +205,13 @@
   font-size: 18px;
   line-height: 22px;
   /* 1 */
-  color: #2d2d2d;
+  color: #5a5a5a;
   border-bottom: 2px solid transparent;
   text-decoration: none; }
+  .localTab:hover, .localTab:active {
+    color: #2d2d2d; }
   .localTab.localTab-is-selected {
+    color: #2d2d2d;
     border-bottom-color: #2d2d2d; }
   .localTab + .localTab {
     margin-left: 8px; }
