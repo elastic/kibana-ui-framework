@@ -42,6 +42,12 @@ export default createExample([{
   ),
   html: require('./local_nav_dropdown/local_nav_dropdown.html'),
 }, {
+  title: 'Dropdown panels',
+  description: (
+    <p>You can split the dropdown into side-by-side Panels.</p>
+  ),
+  html: require('./local_nav_dropdown_panels/local_nav_dropdown_panels.html'),
+}, {
   title: 'Tabs',
   description: (
     <p>You can display Tabs for navigating local content.</p>
