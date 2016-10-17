@@ -1,6 +1,5 @@
 {
   "name": "@elastic/kibana-ui-framework",
-  "private": true,
   "version": "0.0.3",
   "description": "Kibana UI Framework",
   "main": "index.js",

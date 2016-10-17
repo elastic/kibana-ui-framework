@@ -215,3 +215,11 @@
     border-bottom-color: #2d2d2d; }
   .localTab + .localTab {
     margin-left: 8px; }
+
+.localTitle {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: bold; }
