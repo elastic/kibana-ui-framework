@@ -1,5 +1,6 @@
 
 $localNavSideSpacing: 10px;
+$localNavFontSizeNormal: 14px;
 
 @import "local_breadcrumbs";
 @import "local_dropdown";
@@ -7,3 +8,4 @@ $localNavSideSpacing: 10px;
 @import "local_nav";
 @import "local_search";
 @import "local_tabs";
+@import "local_title";
