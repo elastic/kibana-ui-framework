@@ -8,9 +8,15 @@ import {
 export default createExample([{
   title: 'Simple',
   description: (
-    <p>Here's a simple LocalNav with breadcrumbs in the top left corner and Menu in the top right.</p>
+    <p>Here's a simple LocalNav with a Title in the top left corner and Menu in the top right.</p>
   ),
   html: require('./local_nav_simple/local_nav_simple.html'),
+}, {
+  title: 'Breadcrumbs',
+  description: (
+    <p>You can replace the Title with Breadcrumbs.</p>
+  ),
+  html: require('./local_nav_breadcrumbs/local_nav_breadcrumbs.html'),
 }, {
   title: 'Search',
   description: (
@@ -38,7 +44,7 @@ export default createExample([{
 }, {
   title: 'Tabs',
   description: (
-    <p>You can display tabs for navigating local content.</p>
+    <p>You can display Tabs for navigating local content.</p>
   ),
   html: require('./local_nav_tabs/local_nav_tabs.html'),
 }]);

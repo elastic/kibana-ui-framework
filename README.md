@@ -56,5 +56,6 @@ For a more in-depth analysis of the problems with Bootstrap (and similar framewo
 * [Smaato React UI Framework](http://smaato.github.io/ui-framework/#/modal)
 * [Lonely Planet Style Guide](http://rizzo.lonelyplanet.com/styleguide/design-elements/colours)
 * [MailChimp Patterns Library](http://ux.mailchimp.com/patterns)
+* [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/)
 * [Refills](http://refills.bourbon.io/)
 * [Formstone](https://formstone.it/)
