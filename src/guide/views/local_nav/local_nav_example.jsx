@@ -24,27 +24,27 @@ export default createExample([{
   ),
   html: require('./local_nav_search/local_nav_search.html'),
 }, {
-  title: 'Search, with error',
+  title: 'Invalid Search',
   html: require('./local_nav_search_error/local_nav_search_error.html'),
 }, {
-  title: 'Selected and disabled menu item states',
+  title: 'Selected and disabled Menu Item states',
   description: (
     <div>
-      <p>When the user selects a menu item, additional content can be displayed inside of a dropdown.</p>
-      <p>Menu items can also be disabled, in which case they become non-interactive.</p>
+      <p>When the user selects a Menu Item, additional content can be displayed inside of a Dropdown.</p>
+      <p>Menu Items can also be disabled, in which case they become non-interactive.</p>
     </div>
   ),
   html: require('./local_nav_menu_item_states/local_nav_menu_item_states.html'),
 }, {
   title: 'Dropdown',
   description: (
-    <p>Selecting a menu item will commonly result in an open dropdown.</p>
+    <p>Selecting a Menu Item will commonly result in an open Dropdown.</p>
   ),
   html: require('./local_nav_dropdown/local_nav_dropdown.html'),
 }, {
   title: 'Dropdown panels',
   description: (
-    <p>You can split the dropdown into side-by-side Panels.</p>
+    <p>You can split the Dropdown into side-by-side Panels.</p>
   ),
   html: require('./local_nav_dropdown_panels/local_nav_dropdown_panels.html'),
 }, {
