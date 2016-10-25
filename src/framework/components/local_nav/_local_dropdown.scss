@@ -1,12 +1,8 @@
 
 .localDropdown {
-  padding: 0 $localNavSideSpacing;
+  padding: 10px $localNavSideSpacing 14px;
   background-color: #f6f6f6;
   line-height: 20px;
-}
-
-.localDropdownContent {
-  padding: 10px 15px;
 }
 
 .localDropdownPanels {
@@ -33,6 +29,10 @@
 
 .localDropdownSection {
   margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .localDropdownHeader {
