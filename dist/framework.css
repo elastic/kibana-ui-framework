@@ -32,12 +32,9 @@
   font-weight: 700; }
 
 .localDropdown {
-  padding: 0 10px;
+  padding: 10px 10px 14px;
   background-color: #f6f6f6;
   line-height: 20px; }
-
-.localDropdownContent {
-  padding: 10px 15px; }
 
 .localDropdownPanels {
   display: flex; }
@@ -58,6 +55,8 @@
 
 .localDropdownSection {
   margin-bottom: 16px; }
+  .localDropdownSection:last-child {
+    margin-bottom: 0; }
 
 .localDropdownHeader {
   display: flex;
