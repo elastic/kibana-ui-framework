@@ -40,54 +40,68 @@
   </div>
 
   <div class="localDropdown">
-    <div class="localDropdownContent">
-      <!-- Title -->
-      <div class="localDropdownTitle">Dropdown title</div>
+    <!-- Title -->
+    <div class="localDropdownTitle">Dropdown title</div>
 
-      <!-- Help text -->
-      <div class="localDropdownHelpText">
-        Here's some help text to explain the purpose of the dropdown.
+    <!-- Help text -->
+    <div class="localDropdownHelpText">
+      Here's some help text to explain the purpose of the dropdown.
+    </div>
+
+    <!-- Warning -->
+    <div class="localDropdownWarning">
+      Here's some warning text in case the user has something misconfigured.
+    </div>
+
+    <div class="localDropdownSection">
+      <!-- Header -->
+      <div class="localDropdownHeader">
+        <div class="localDropdownHeader__label">
+          Header for a section of content
+        </div>
       </div>
 
-      <div class="localDropdownSection">
-        <!-- Warning -->
-        <div class="localDropdownWarning">
-          Here's some warning text in case the user has something misconfigured.
-        </div>
+       <!-- Input -->
+      <input
+        class="localDropdownInput"
+        type="text"
+        placeholder="Input something here"
+      />
+    </div>
 
-        <!-- Header -->
-        <div class="localDropdownHeader">
-          <div class="localDropdownHeader__label">
-            Header for a section of content
-          </div>
-          <div class="localDropdownHeader__actions">
-            <a
-              class="localDropdownHeader__action"
-              href=""
-            >
-              Action A
-            </a>
-            <a
-              class="localDropdownHeader__action"
-              href=""
-            >
-              Action B
-            </a>
-          </div>
+    <div class="localDropdownSection">
+      <!-- Header -->
+      <div class="localDropdownHeader">
+        <div class="localDropdownHeader__label">
+          Header for another section of content
         </div>
-
-        <!-- Input -->
-        <input
-          class="localDropdownInput"
-          type="text"
-          readonly
-          value="This is some text inside of a read-only input"
-        />
-
-        <!-- Notes -->
-        <div class="localDropdownFormNote">
-          Here are some notes to explain the purpose of this section of the dropdown.
+        <div class="localDropdownHeader__actions">
+          <a
+            class="localDropdownHeader__action"
+            href=""
+          >
+            Action A
+          </a>
+          <a
+            class="localDropdownHeader__action"
+            href=""
+          >
+            Action B
+          </a>
         </div>
+      </div>
+
+      <!-- Input -->
+      <input
+        class="localDropdownInput"
+        type="text"
+        readonly
+        value="This is some text inside of a read-only input"
+      />
+
+      <!-- Notes -->
+      <div class="localDropdownFormNote">
+        Here are some notes to explain the purpose of this section of the dropdown.
       </div>
     </div>
   </div>
