@@ -45,6 +45,12 @@
     line-height: 21px;
   }
 
+  .guidePageSection__example {
+    & + & {
+      margin-top: 20px;
+    }
+  }
+
   .guidePageSection__example--standalone {
     margin-top: 10px;
   }

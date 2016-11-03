@@ -46,6 +46,7 @@ export default class GuidePageSection extends Component {
     }
 
     trimChildren(this.refs.html);
+    trimChildren(this.refs.htmlDarkTheme);
   }
 
   componentWillUnmount() {
@@ -68,7 +69,7 @@ export default class GuidePageSection extends Component {
       );
     }
 
-    const exampleClasses = classNames({
+    const exampleClasses = classNames('guidePageSection__example', {
       'guidePageSection__example--standalone': !this.props.children,
     });
 
@@ -92,6 +93,12 @@ export default class GuidePageSection extends Component {
         <div
           ref="html"
           className={exampleClasses}
+          dangerouslySetInnerHTML={{ __html: this.props.html }}
+        />
+
+        <div
+          ref="htmlDarkTheme"
+          className={`${exampleClasses} theme-dark`}
           dangerouslySetInnerHTML={{ __html: this.props.html }}
         />
       </div>

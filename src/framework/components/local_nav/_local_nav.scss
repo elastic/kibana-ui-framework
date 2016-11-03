@@ -8,7 +8,13 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 70px; /* 1 */
-  background-color: #e4e4e4;
+  color: $localNavTextColor;
+  background-color: $localNavBackgroundColor;
+
+  @include darkTheme {
+    color: $localNavTextColor--darkTheme;
+    background-color: $localNavBackgroundColor--darkTheme;
+  }
 }
 
 .localNavRow {

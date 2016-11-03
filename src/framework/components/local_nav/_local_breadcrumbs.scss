@@ -18,16 +18,25 @@
         content: '/';
         user-select: none;
         margin-right: 4px;
-        color: #5a5a5a;
+        color: $localNavBreadcrumbDelimiterColor;
+
+        @include darkTheme {
+          color: $localNavBreadcrumbDelimiterColor--darkTheme;
+        }
       }
     }
 
     &:last-child {
       .localBreadcrumb__link {
         pointer-events: none;
-        color: #2d2d2d;
+        color: $localNavTextColor;
+
+        @include darkTheme {
+          color: $localNavTextColor--darkTheme;
+        }
       }
     }
+
   }
 
     .localBreadcrumb__link {
@@ -37,6 +46,10 @@
 
       &:hover {
         text-decoration: underline;
+      }
+
+      @include darkTheme {
+        color: $localNavButtonTextColor--darkTheme;
       }
     }
 
