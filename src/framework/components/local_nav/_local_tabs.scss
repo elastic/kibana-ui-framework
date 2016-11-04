@@ -1,7 +1,9 @@
-
+/**
+ * 1. We want the bottom border on selected tabs to be flush with the bottom of the container.
+ */
 .localTabs {
   display: flex;
-  align-items: center;
+  align-items: flex-end; // 1
   height: 100%;
 }
 
@@ -12,21 +14,36 @@
     padding: 5px 0 6px 0;
     font-size: 18px;
     line-height: 22px; /* 1 */
-    color: #5a5a5a;
+    color: $localTabTextColor;
     border-bottom: 2px solid transparent;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover,
     &:active {
-      color: #2d2d2d;
+      color: $localTabTextColor-isHover;
+
+      @include darkTheme {
+        color: $localTabTextColor-isHover--darkTheme;
+      }
     }
 
     &.localTab-isSelected {
-      color: #2d2d2d;
-      border-bottom-color: #2d2d2d;
+      color: $localTabTextColor-isSelected;
+      border-bottom-color: $localTabTextColor-isSelected;
+      cursor: default;
+
+      @include darkTheme {
+        color: $localTabTextColor-isSelected--darkTheme;
+        border-bottom-color: $localTabTextColor-isSelected--darkTheme;
+      }
     }
 
     & + & {
       margin-left: 15px;
+    }
+
+    @include darkTheme {
+      color: $localTabTextColor--darkTheme;
     }
   }
