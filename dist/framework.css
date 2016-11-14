@@ -155,9 +155,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     color: #000000; }
   .localMenuItem.localMenuItem-isSelected {
-    background-color: #f6f6f6;
-    cursor: default;
-    pointer-events: none; }
+    background-color: #f6f6f6; }
   .localMenuItem.localMenuItem-isDisabled {
     opacity: 0.5;
     cursor: default;
