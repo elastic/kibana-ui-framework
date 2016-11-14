@@ -23,8 +23,6 @@
 
     &.localMenuItem-isSelected {
       background-color: $localNavButtonBackgroundColor-isSelected;
-      cursor: default;
-      pointer-events: none;
     }
 
     &.localMenuItem-isDisabled {
