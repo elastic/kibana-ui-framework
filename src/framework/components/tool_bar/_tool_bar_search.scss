@@ -1,0 +1,24 @@
+.toolBarSearch {
+  line-height: $lineHeight;
+}
+
+.toolBarSearchBox {
+  position: relative;
+}
+
+  .toolBarSearchBox__icon {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-size: 14px;
+    color: #ACACAC;
+  }
+
+  .toolBarSearchBox__input {
+    width: 350px;
+    padding: 5px 12px 6px 28px;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: $buttonBorderRadius;
+    font-size: $fontSize;
+  }

@@ -7,7 +7,7 @@
   line-height: $lineHeight;
   text-decoration: none;
   border: none;
-  border-radius: 4px;
+  border-radius: $buttonBorderRadius;
   cursor: pointer;
 
   &:disabled {

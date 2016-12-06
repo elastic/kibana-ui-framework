@@ -5,7 +5,24 @@
   background-color: #E4E4E4;
 }
 
+  .toolBar__section {
+    display: flex;
+    align-items: center;
+
+    & + & {
+      margin-left: 50px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
   .toolBar__item {
+    display: flex;
+    align-items: center;
+
     & + & {
       margin-left: 10px;
     }

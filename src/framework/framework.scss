@@ -22,6 +22,9 @@ $inputBorderColor--darkTheme: $inputBackgroundColor--darkTheme;
 $fontSize: 14px;
 $lineHeight: 1.5;
 
+// Button
+$buttonBorderRadius: 4px;
+
 @mixin darkTheme() {
   .theme-dark & {
     @content;
