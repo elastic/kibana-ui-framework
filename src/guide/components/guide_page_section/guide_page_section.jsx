@@ -46,7 +46,10 @@ export default class GuidePageSection extends Component {
     }
 
     trimChildren(this.refs.html);
-    trimChildren(this.refs.htmlDarkTheme);
+
+    if (this.refs.htmlDarkTheme) {
+      trimChildren(this.refs.htmlDarkTheme);
+    }
   }
 
   componentWillUnmount() {
@@ -66,6 +69,22 @@ export default class GuidePageSection extends Component {
         <div className="guidePageSection__description">
           {this.props.children}
         </div>
+      );
+    }
+
+    let darkThemeExample;
+
+    if (this.props.hasDarkTheme) {
+      darkThemeExample = (
+        <div
+          ref="htmlDarkTheme"
+          className={`${exampleClasses} theme-dark`}
+          dangerouslySetInnerHTML={{ __html: this.props.html }}
+        />
+      );
+    } else {
+      darkThemeExample = (
+        <div className="guideWarning">This component is missing Dark Theme variations.</div>
       );
     }
 
@@ -96,11 +115,7 @@ export default class GuidePageSection extends Component {
           dangerouslySetInnerHTML={{ __html: this.props.html }}
         />
 
-        <div
-          ref="htmlDarkTheme"
-          className={`${exampleClasses} theme-dark`}
-          dangerouslySetInnerHTML={{ __html: this.props.html }}
-        />
+        {darkThemeExample}
       </div>
     );
   }
@@ -120,4 +135,5 @@ GuidePageSection.propTypes = {
   html: PropTypes.string,
   js: PropTypes.string,
   children: PropTypes.any,
+  hasDarkTheme: PropTypes.bool,
 };

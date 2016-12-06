@@ -1,11 +1,17 @@
 
 import Slugify from '../string/slugify';
 
+import ButtonExample
+  from '../../views/button/button_example.jsx';
+
 import LocalNavExample
   from '../../views/local_nav/local_nav_example.jsx';
 
 // Component route names should match the component name exactly.
 const components = [{
+  name: 'Button',
+  component: ButtonExample,
+}, {
   name: 'LocalNav',
   component: LocalNavExample,
 }];

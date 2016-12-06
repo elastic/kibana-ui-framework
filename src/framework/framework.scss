@@ -18,10 +18,20 @@ $inputTextColor--darkTheme: $textColor--darkTheme;
 $inputBackgroundColor--darkTheme: #444444;
 $inputBorderColor--darkTheme: $inputBackgroundColor--darkTheme;
 
+// Font
+$fontSize: 14px;
+$lineHeight: 1.5;
+
 @mixin darkTheme() {
   .theme-dark & {
     @content;
   }
 }
 
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+@import "components/button/index";
 @import "components/local_nav/index";
+@import "components/tool_bar/index";

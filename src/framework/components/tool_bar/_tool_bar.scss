@@ -1,0 +1,12 @@
+.toolBar {
+  display: flex;
+  padding: 10px;
+  height: 50px;
+  background-color: #E4E4E4;
+}
+
+  .toolBar__item {
+    & + & {
+      margin-left: 10px;
+    }
+  }
