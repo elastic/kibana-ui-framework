@@ -62,6 +62,10 @@ export default class GuidePageSection extends Component {
   }
 
   render() {
+    const exampleClasses = classNames('guidePageSection__example', {
+      'guidePageSection__example--standalone': !this.props.children,
+    });
+
     let description;
 
     if (this.props.children) {
@@ -87,10 +91,6 @@ export default class GuidePageSection extends Component {
         <div className="guideWarning">This component is missing Dark Theme variations.</div>
       );
     }
-
-    const exampleClasses = classNames('guidePageSection__example', {
-      'guidePageSection__example--standalone': !this.props.children,
-    });
 
     return (
       <div

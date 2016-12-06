@@ -7,6 +7,9 @@ import ButtonExample
 import LocalNavExample
   from '../../views/local_nav/local_nav_example.jsx';
 
+import ToolBarExample
+  from '../../views/tool_bar/tool_bar_example.jsx';
+
 // Component route names should match the component name exactly.
 const components = [{
   name: 'Button',
@@ -14,6 +17,9 @@ const components = [{
 }, {
   name: 'LocalNav',
   component: LocalNavExample,
+}, {
+  name: 'ToolBar',
+  component: ToolBarExample,
 }];
 
 export default {
