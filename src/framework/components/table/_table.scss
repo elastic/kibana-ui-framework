@@ -22,6 +22,16 @@
   color: #787878;
 }
 
+.tableHeaderCell--sortable {
+  cursor: pointer;
+
+  &:hover:not(.tableHeaderCell-isSorted) {
+    .tableSortIcon {
+      opacity: 0.4;
+    }
+  }
+}
+
 .tableRowCell {
   @include tableCell;
   color: $fontColor;

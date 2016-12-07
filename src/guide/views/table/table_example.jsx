@@ -7,6 +7,7 @@ import {
 export default createExample([{
   title: 'Table',
   html: require('./table.html'),
+  js: require('raw!./table.js'),
   hasDarkTheme: false,
 }, {
   title: 'ControlledTable',

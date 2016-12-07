@@ -1,4 +1,3 @@
-
 import React, {
   Component,
   PropTypes,

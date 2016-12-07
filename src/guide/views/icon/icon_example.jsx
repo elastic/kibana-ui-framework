@@ -19,6 +19,13 @@ export default createExample([{
   html: require('./icon_success.html'),
   hasDarkTheme: false,
 }, {
+  title: 'Warning',
+  description: (
+    <p>Use this Icon to convey an irregularity or potential problems.</p>
+  ),
+  html: require('./icon_warning.html'),
+  hasDarkTheme: false,
+}, {
   title: 'Error',
   description: (
     <p>Use this Icon to convey a failed attempt at an action, e.g. an invalid form field or an API error.</p>

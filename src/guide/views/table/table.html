@@ -4,11 +4,15 @@
       <th class="tableHeaderCell tableHeaderCell--checkBox">
         <input type="checkbox" class="checkBox">
       </th>
-      <th class="tableHeaderCell">
+      <th class="tableHeaderCell tableHeaderCell--sortable" data-demo-sortable-column>
         Title
+        <span data-sort-icon-ascending class="tableSortIcon icon fa-long-arrow-up"></span>
+        <span data-sort-icon-descending class="tableSortIcon icon fa-long-arrow-down"></span>
       </th>
-      <th class="tableHeaderCell">
+      <th class="tableHeaderCell tableHeaderCell--sortable" data-demo-sortable-column>
         Status
+        <span data-sort-icon-ascending class="tableSortIcon icon fa-long-arrow-up"></span>
+        <span data-sort-icon-descending class="tableSortIcon icon fa-long-arrow-down"></span>
       </th>
       <th class="tableHeaderCell">
         Date created
@@ -72,7 +76,7 @@
         <a class="link" href="#">Celebration</a>
       </td>
       <td class="tableRowCell">
-        <div class="icon icon--success fa-check"></div>
+        <div class="icon icon--warning fa-bolt"></div>
       </td>
       <td class="tableRowCell">
         <div class="tableRowCell__liner">
