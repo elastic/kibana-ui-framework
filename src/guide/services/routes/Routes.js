@@ -7,6 +7,9 @@ import ButtonExample
 import FormExample
   from '../../views/form/form_example.jsx';
 
+import IconExample
+  from '../../views/icon/icon_example.jsx';
+
 import LocalNavExample
   from '../../views/local_nav/local_nav_example.jsx';
 
@@ -23,6 +26,9 @@ const components = [{
 }, {
   name: 'Form',
   component: FormExample,
+}, {
+  name: 'Icon',
+  component: IconExample,
 }, {
   name: 'LocalNav',
   component: LocalNavExample,
