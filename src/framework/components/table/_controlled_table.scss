@@ -1,0 +1,13 @@
+/**
+ * 1. Make seamless transition from ToolBar to Table header.
+ * 1. Make seamless transition from Table to ToolBarFooter header.
+ */
+.controlledTable {
+  .table {
+    border-top: none; /* 1 */
+  }
+
+  .toolBarFooter {
+    border-top: none; /* 2 */
+  }
+}

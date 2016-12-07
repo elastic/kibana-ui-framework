@@ -12,4 +12,11 @@ export default createExample([{
   ),
   html: require('./tool_bar.html'),
   hasDarkTheme: false,
+}, {
+  title: 'ToolBarFooter',
+  description: (
+    <p>Use the ToolBarFooter in conjunction with the ToolBar. It can surface secondary controls or a subset of the primary controls.</p>
+  ),
+  html: require('./tool_bar_footer.html'),
+  hasDarkTheme: false,
 }]);

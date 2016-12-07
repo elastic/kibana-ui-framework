@@ -11,8 +11,9 @@
 }
 
 .table {
+  table-layout: fixed;
   width: 100%;
-  border: 2px solid #F2F2F2;
+  border: $tableBorder;
   border-collapse: collapse;
 }
 
@@ -23,10 +24,20 @@
 
 .tableRowCell {
   @include tableCell;
-  border-top: 2px solid #F2F2F2;
+  border-top: $tableBorder;
 }
 
+  .tableRowCell__liner {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+/**
+ * 1. Rendered width of cell with checkbox inside of it.
+ */
 .tableHeaderCell--checkBox,
 .tableRowCell--checkBox {
+  width: 28px; /* 1 */
   padding-right: 0;
 }

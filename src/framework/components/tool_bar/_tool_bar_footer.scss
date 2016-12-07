@@ -1,27 +1,16 @@
-.toolBar {
+.toolBarFooter {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  height: 50px;
-  background-color: $panelColor;
-
-  .button--basic {
-    background-color: #FFFFFF;
-
-    &:hover:enabled {
-      background-color: #FFFFFF;
-    }
-
-    &:active:enabled {
-      background-color: #FAFAFA;
-    }
-  }
+  height: 40px;
+  background-color: #ffffff;
+  border: $tableBorder;
 }
 
 /**
  * 1. Put 10px of space between each child.
  */
-.toolBarSection {
+.toolBarFooterSection {
   display: flex;
   align-items: center;
   margin-left: $toolBarSectionSpacing * 0.5;
@@ -29,6 +18,10 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  &:only-child {
+    margin-left: auto;
   }
 
   & > * + * {

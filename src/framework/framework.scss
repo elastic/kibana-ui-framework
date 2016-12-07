@@ -25,6 +25,12 @@ $lineHeight: 1.5;
 // Button
 $buttonBorderRadius: 4px;
 
+// Colors
+$panelColor: #E4E4E4;
+
+// Borders
+$tableBorder: 2px solid $panelColor;
+
 @mixin darkTheme() {
   .theme-dark & {
     @content;
