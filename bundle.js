@@ -74,11 +74,11 @@
 	
 	var _app_container2 = _interopRequireDefault(_app_container);
 	
-	var _home_view = __webpack_require__(732);
+	var _home_view = __webpack_require__(757);
 	
 	var _home_view2 = _interopRequireDefault(_home_view);
 	
-	var _not_found_view = __webpack_require__(733);
+	var _not_found_view = __webpack_require__(758);
 	
 	var _not_found_view2 = _interopRequireDefault(_not_found_view);
 	
@@ -86,7 +86,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(734);
+	__webpack_require__(759);
 	
 	// Store.
 	
@@ -36271,7 +36271,7 @@
 	
 	var _app_view2 = _interopRequireDefault(_app_view);
 	
-	var _actions = __webpack_require__(730);
+	var _actions = __webpack_require__(755);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -36330,7 +36330,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	// Inject version into header.
-	var pkg = __webpack_require__(729);
+	var pkg = __webpack_require__(754);
 	
 	var AppView = function (_Component) {
 	  _inherits(AppView, _Component);
@@ -51466,7 +51466,8 @@
 	            title: section.title,
 	            slug: section.slug,
 	            html: section.html,
-	            js: section.js
+	            js: section.js,
+	            hasDarkTheme: section.hasDarkTheme
 	          },
 	          section.description
 	        );
@@ -51502,7 +51503,8 @@
 	    title: _react2.default.PropTypes.string.isRequired,
 	    description: _react2.default.PropTypes.any,
 	    html: _react2.default.PropTypes.string.isRequired,
-	    js: _react2.default.PropTypes.string
+	    js: _react2.default.PropTypes.string,
+	    hasDarkTheme: _react2.default.PropTypes.bool
 	  }))
 	};
 
@@ -51577,8 +51579,12 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'guideNavItems' },
-	      navItems
+	      { className: 'guideNavItemsContainer' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'guideNavItems' },
+	        navItems
+	      )
 	    )
 	  );
 	};
@@ -51771,7 +51777,10 @@
 	      }
 	
 	      trimChildren(this.refs.html);
-	      trimChildren(this.refs.htmlDarkTheme);
+	
+	      if (this.refs.htmlDarkTheme) {
+	        trimChildren(this.refs.htmlDarkTheme);
+	      }
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -51787,6 +51796,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var exampleClasses = (0, _classnames2.default)('guidePageSection__example', {
+	        'guidePageSection__example--standalone': !this.props.children
+	      });
+	
 	      var description = void 0;
 	
 	      if (this.props.children) {
@@ -51797,9 +51810,21 @@
 	        );
 	      }
 	
-	      var exampleClasses = (0, _classnames2.default)('guidePageSection__example', {
-	        'guidePageSection__example--standalone': !this.props.children
-	      });
+	      var darkThemeExample = void 0;
+	
+	      if (this.props.hasDarkTheme) {
+	        darkThemeExample = _react2.default.createElement('div', {
+	          ref: 'htmlDarkTheme',
+	          className: exampleClasses + ' theme-dark',
+	          dangerouslySetInnerHTML: { __html: this.props.html }
+	        });
+	      } else {
+	        darkThemeExample = _react2.default.createElement(
+	          'div',
+	          { className: 'guideWarning' },
+	          'This component is missing Dark Theme variations.'
+	        );
+	      }
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -51826,11 +51851,7 @@
 	          className: exampleClasses,
 	          dangerouslySetInnerHTML: { __html: this.props.html }
 	        }),
-	        _react2.default.createElement('div', {
-	          ref: 'htmlDarkTheme',
-	          className: exampleClasses + ' theme-dark',
-	          dangerouslySetInnerHTML: { __html: this.props.html }
-	        })
+	        darkThemeExample
 	      );
 	    }
 	  }]);
@@ -51853,7 +51874,8 @@
 	  slug: _react.PropTypes.string,
 	  html: _react.PropTypes.string,
 	  js: _react.PropTypes.string,
-	  children: _react.PropTypes.any
+	  children: _react.PropTypes.any,
+	  hasDarkTheme: _react.PropTypes.bool
 	};
 
 /***/ },
@@ -62131,16 +62153,58 @@
 	
 	var _slugify2 = _interopRequireDefault(_slugify);
 	
-	var _local_nav_example = __webpack_require__(720);
+	var _button_example = __webpack_require__(720);
+	
+	var _button_example2 = _interopRequireDefault(_button_example);
+	
+	var _form_example = __webpack_require__(728);
+	
+	var _form_example2 = _interopRequireDefault(_form_example);
+	
+	var _icon_example = __webpack_require__(731);
+	
+	var _icon_example2 = _interopRequireDefault(_icon_example);
+	
+	var _link_example = __webpack_require__(736);
+	
+	var _link_example2 = _interopRequireDefault(_link_example);
+	
+	var _local_nav_example = __webpack_require__(738);
 	
 	var _local_nav_example2 = _interopRequireDefault(_local_nav_example);
+	
+	var _table_example = __webpack_require__(747);
+	
+	var _table_example2 = _interopRequireDefault(_table_example);
+	
+	var _tool_bar_example = __webpack_require__(751);
+	
+	var _tool_bar_example2 = _interopRequireDefault(_tool_bar_example);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// Component route names should match the component name exactly.
 	var components = [{
+	  name: 'Button',
+	  component: _button_example2.default
+	}, {
+	  name: 'Form',
+	  component: _form_example2.default
+	}, {
+	  name: 'Icon',
+	  component: _icon_example2.default
+	}, {
+	  name: 'Link',
+	  component: _link_example2.default
+	}, {
 	  name: 'LocalNav',
 	  component: _local_nav_example2.default
+	}, {
+	  name: 'Table',
+	  component: _table_example2.default
+	}, {
+	  name: 'ToolBar',
+	  component: _tool_bar_example2.default
 	}];
 	
 	exports.default = {
@@ -62203,13 +62267,301 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _services.createExample)([{
+	  title: 'Basic Button',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the basic Button in most situations.'
+	  ),
+	  html: __webpack_require__(721),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Primary Button',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the primary Button to represent the most common action. Generally, there won\'t be a need to present more than one of these at a time.'
+	  ),
+	  html: __webpack_require__(722),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Danger Button',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Danger Buttons represent irreversible, potentially regrettable actions.'
+	  ),
+	  html: __webpack_require__(723),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Button with icon',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'You can toss an icon into a Button, with or without text.'
+	  ),
+	  html: __webpack_require__(724),
+	  hasDarkTheme: false
+	}, {
+	  title: 'ButtonGroup',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the ButtonGroup to emphasize the relationships between a set of Buttons, and differentiate them from Buttons outside of the set.'
+	  ),
+	  html: __webpack_require__(725),
+	  hasDarkTheme: false
+	}, {
+	  title: 'In ToolBar',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'This example verifies that Buttons are legible against the ToolBar\'s background.'
+	  ),
+	  html: __webpack_require__(726),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Element variations',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'You can create a Button using a button element, link, or input[type="submit"].'
+	  ),
+	  html: __webpack_require__(727),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 721 */
+/***/ function(module, exports) {
+
+	module.exports = "<button class=\"button button--basic\">\n  Basic button\n</button>\n\n<hr class=\"guideBreak\">\n\n<button disabled class=\"button button--basic\">\n  Basic button, disabled\n</button>\n";
+
+/***/ },
+/* 722 */
+/***/ function(module, exports) {
+
+	module.exports = "<button class=\"button button--primary\">\n  Primary button\n</button>\n\n<hr class=\"guideBreak\">\n\n<button disabled class=\"button button--primary\">\n  Primary button, disabled\n</button>\n";
+
+/***/ },
+/* 723 */
+/***/ function(module, exports) {
+
+	module.exports = "<button class=\"button button--danger\">\n  Danger button\n</button>\n\n<hr class=\"guideBreak\">\n\n<button disabled class=\"button button--danger\">\n  Danger button, disabled\n</button>\n";
+
+/***/ },
+/* 724 */
+/***/ function(module, exports) {
+
+	module.exports = "<button class=\"button button--basic button--iconText\">\n  <span class=\"button__icon icon fa-gear\"></span>\n  Settings\n</button>\n\n<hr class=\"guideBreak\">\n\n<button class=\"button button--basic\">\n  <span class=\"button__icon icon fa-gear\"></span>\n</button>\n";
+
+/***/ },
+/* 725 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"buttonGroup\">\n  <button class=\"button button--basic\">\n    Option A\n  </button>\n  <button class=\"button button--basic\">\n    Option B\n  </button>\n  <button class=\"button button--basic\">\n    Option C\n  </button>\n</div>\n";
+
+/***/ },
+/* 726 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"toolBar\">\n  <button class=\"button button--basic\">\n    Basic button\n  </button>\n\n  <button disabled class=\"button button--basic\">\n    Basic button, disabled\n  </button>\n\n  <button class=\"button button--primary\">\n    Primary button\n  </button>\n\n  <button disabled class=\"button button--primary\">\n    Primary button, disabled\n  </button>\n\n  <button class=\"button button--danger\">\n    Danger button\n  </button>\n\n  <button disabled class=\"button button--danger\">\n    Danger button, disabled\n  </button>\n</div>\n";
+
+/***/ },
+/* 727 */
+/***/ function(module, exports) {
+
+	module.exports = "<button class=\"button button--basic\">\n  Button element\n</button>\n\n<hr class=\"guideBreak\">\n\n<input\n  type=\"submit\"\n  class=\"button button--basic\"\n  value=\"Submit input element\"\n>\n\n<hr class=\"guideBreak\">\n\n<a href=\"#\" class=\"button button--basic\">\n  Anchor element\n</a>\n";
+
+/***/ },
+/* 728 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
+	  title: 'TextInput',
+	  html: __webpack_require__(729),
+	  hasDarkTheme: false
+	}, {
+	  title: 'CheckBox',
+	  html: __webpack_require__(730),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 729 */
+/***/ function(module, exports) {
+
+	module.exports = "<input type=\"text\" class=\"textInput\" placeholder=\"Placeholder text\">\n\n<hr class=\"guideBreak\">\n\n<input type=\"text\" class=\"textInput\" value=\"Entered text\" autofocus>\n\n<hr class=\"guideBreak\">\n\n<input type=\"text\" class=\"textInput\" required>\n";
+
+/***/ },
+/* 730 */
+/***/ function(module, exports) {
+
+	module.exports = "<input type=\"checkbox\" class=\"checkBox\">\n";
+
+/***/ },
+/* 731 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
+	  title: 'Icon',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the ',
+	    _react2.default.createElement(
+	      'code',
+	      { className: 'guideCode' },
+	      'icon'
+	    ),
+	    ' class instead of the ',
+	    _react2.default.createElement(
+	      'code',
+	      { className: 'guideCode' },
+	      'fa'
+	    ),
+	    ' class for FontAwesome icons. This will make it easier for us to migrate away from FontAwesome.'
+	  ),
+	  html: __webpack_require__(732),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Success',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use this Icon to convey the successful completion of an action, e.g. filling out a form field correctly or a successful API request.'
+	  ),
+	  html: __webpack_require__(733),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Warning',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use this Icon to convey an irregularity or potential problems.'
+	  ),
+	  html: __webpack_require__(734),
+	  hasDarkTheme: false
+	}, {
+	  title: 'Error',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use this Icon to convey a failed attempt at an action, e.g. an invalid form field or an API error.'
+	  ),
+	  html: __webpack_require__(735),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 732 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"icon fa-gear\"></div>\n";
+
+/***/ },
+/* 733 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"icon icon--success fa-check\"></div>\n";
+
+/***/ },
+/* 734 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"icon icon--warning fa-bolt\"></div>\n";
+
+/***/ },
+/* 735 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"icon icon--error fa-warning\"></div>\n";
+
+/***/ },
+/* 736 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
+	  title: 'Link',
+	  html: __webpack_require__(737),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 737 */
+/***/ function(module, exports) {
+
+	module.exports = "<a class=\"link\" href=\"#\">More info</a>\n";
+
+/***/ },
+/* 738 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
 	  title: 'Simple',
 	  description: _react2.default.createElement(
 	    'p',
 	    null,
 	    'Here\'s a simple LocalNav with a Title in the top left corner and Menu in the top right.'
 	  ),
-	  html: __webpack_require__(721)
+	  html: __webpack_require__(739),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Breadcrumbs',
 	  description: _react2.default.createElement(
@@ -62217,7 +62569,8 @@
 	    null,
 	    'You can replace the Title with Breadcrumbs.'
 	  ),
-	  html: __webpack_require__(722)
+	  html: __webpack_require__(740),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Search',
 	  description: _react2.default.createElement(
@@ -62225,10 +62578,12 @@
 	    null,
 	    'You can add a Search component for filtering results.'
 	  ),
-	  html: __webpack_require__(723)
+	  html: __webpack_require__(741),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Invalid Search',
-	  html: __webpack_require__(724)
+	  html: __webpack_require__(742),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Selected and disabled Menu Item states',
 	  description: _react2.default.createElement(
@@ -62245,7 +62600,8 @@
 	      'Menu Items can also be disabled, in which case they become non-interactive.'
 	    )
 	  ),
-	  html: __webpack_require__(725)
+	  html: __webpack_require__(743),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Dropdown',
 	  description: _react2.default.createElement(
@@ -62253,7 +62609,8 @@
 	    null,
 	    'Selecting a Menu Item will commonly result in an open Dropdown.'
 	  ),
-	  html: __webpack_require__(726)
+	  html: __webpack_require__(744),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Dropdown panels',
 	  description: _react2.default.createElement(
@@ -62261,7 +62618,8 @@
 	    null,
 	    'You can split the Dropdown into side-by-side Panels.'
 	  ),
-	  html: __webpack_require__(727)
+	  html: __webpack_require__(745),
+	  hasDarkTheme: true
 	}, {
 	  title: 'Tabs',
 	  description: _react2.default.createElement(
@@ -62269,59 +62627,157 @@
 	    null,
 	    'You can display Tabs for navigating local content.'
 	  ),
-	  html: __webpack_require__(728)
+	  html: __webpack_require__(746),
+	  hasDarkTheme: true
 	}]);
 
 /***/ },
-/* 721 */
+/* 739 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localTitle\">\n        Untitled Document\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <div class=\"localMenuItem\">\n          New\n        </div>\n\n        <div class=\"localMenuItem\">\n          Save\n        </div>\n\n        <div class=\"localMenuItem\">\n          Open\n        </div>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 722 */
+/* 740 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <div class=\"localMenuItem\">\n          New\n        </div>\n\n        <div class=\"localMenuItem\">\n          Save\n        </div>\n\n        <div class=\"localMenuItem\">\n          Open\n        </div>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 723 */
+/* 741 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <button class=\"localMenuItem\">\n          New\n        </button>\n\n        <button class=\"localMenuItem\">\n          Save\n        </button>\n\n        <button class=\"localMenuItem\">\n          Open\n        </button>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localSearch\">\n      <input\n        class=\"localSearchInput\"\n        type=\"text\"\n        placeholder=\"Filter...\"\n        autocomplete=\"off\"\n      >\n      <button class=\"localSearchButton\">\n        <span class=\"fa fa-search\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 724 */
+/* 742 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <button class=\"localMenuItem\">\n          New\n        </button>\n\n        <button class=\"localMenuItem\">\n          Save\n        </button>\n\n        <button class=\"localMenuItem\">\n          Open\n        </button>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localSearch\">\n      <input\n        class=\"localSearchInput localSearchInput-isInvalid\"\n        type=\"text\"\n        placeholder=\"Filter...\"\n        autocomplete=\"off\"\n      >\n      <button class=\"localSearchButton\">\n        <span class=\"fa fa-search\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 725 */
+/* 743 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <div class=\"localMenuItem localMenuItem-isSelected\">\n          New\n        </div>\n\n        <div class=\"localMenuItem\">\n          Save\n        </div>\n\n        <div class=\"localMenuItem localMenuItem-isDisabled\">\n          Open\n        </div>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localSearch\">\n      <input\n        class=\"localSearchInput\"\n        type=\"text\"\n        placeholder=\"Filter...\"\n        autocomplete=\"off\"\n      >\n      <button class=\"localSearchButton\">\n        <span class=\"fa fa-search\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 726 */
+/* 744 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <div class=\"localMenuItem localMenuItem-isSelected\">\n          New\n        </div>\n\n        <div class=\"localMenuItem\">\n          Save\n        </div>\n\n        <div class=\"localMenuItem\">\n          Open\n        </div>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localDropdown\">\n    <!-- Title -->\n    <div class=\"localDropdownTitle\">Dropdown title</div>\n\n    <!-- Help text -->\n    <div class=\"localDropdownHelpText\">\n      Here's some help text to explain the purpose of the dropdown.\n    </div>\n\n    <!-- Warning -->\n    <div class=\"localDropdownWarning\">\n      Here's some warning text in case the user has something misconfigured.\n    </div>\n\n    <div class=\"localDropdownSection\">\n      <!-- Header -->\n      <div class=\"localDropdownHeader\">\n        <div class=\"localDropdownHeader__label\">\n          Header for a section of content\n        </div>\n      </div>\n\n       <!-- Input -->\n      <input\n        class=\"localDropdownInput\"\n        type=\"text\"\n        placeholder=\"Input something here\"\n      />\n    </div>\n\n    <div class=\"localDropdownSection\">\n      <!-- Header -->\n      <div class=\"localDropdownHeader\">\n        <div class=\"localDropdownHeader__label\">\n          Header for another section of content\n        </div>\n        <div class=\"localDropdownHeader__actions\">\n          <a\n            class=\"localDropdownHeader__action\"\n            href=\"\"\n          >\n            Action A\n          </a>\n          <a\n            class=\"localDropdownHeader__action\"\n            href=\"\"\n          >\n            Action B\n          </a>\n        </div>\n      </div>\n\n      <!-- Input -->\n      <input\n        class=\"localDropdownInput\"\n        type=\"text\"\n        readonly\n        value=\"This is some text inside of a read-only input\"\n      />\n\n      <!-- Notes -->\n      <div class=\"localDropdownFormNote\">\n        Here are some notes to explain the purpose of this section of the dropdown.\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localSearch\">\n      <input\n        class=\"localSearchInput\"\n        type=\"text\"\n        placeholder=\"Filter...\"\n        autocomplete=\"off\"\n      >\n      <button class=\"localSearchButton\">\n        <span class=\"fa fa-search\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 727 */
+/* 745 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> hits\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <div class=\"localMenuItem localMenuItem-isSelected\">\n          New\n        </div>\n\n        <div class=\"localMenuItem\">\n          Save\n        </div>\n\n        <div class=\"localMenuItem\">\n          Open\n        </div>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localDropdown\">\n    <div class=\"localDropdownPanels\">\n      <!-- Left panel -->\n      <div class=\"localDropdownPanel localDropdownPanel--left\">\n        <!-- Title -->\n        <div class=\"localDropdownTitle\">Left panel</div>\n\n        <!-- Help text -->\n        <div class=\"localDropdownHelpText\">\n          Here's some help text to explain the purpose of the dropdown.\n        </div>\n      </div>\n\n      <!-- Right panel -->\n      <div class=\"localDropdownPanel localDropdownPanel--left\">\n        <!-- Title -->\n        <div class=\"localDropdownTitle\">Right panel</div>\n\n        <!-- Help text -->\n        <div class=\"localDropdownHelpText\">\n          Here's some help text to explain the purpose of the dropdown.\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localSearch\">\n      <input\n        class=\"localSearchInput\"\n        type=\"text\"\n        placeholder=\"Filter...\"\n        autocomplete=\"off\"\n      >\n      <button class=\"localSearchButton\">\n        <span class=\"fa fa-search\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 728 */
+/* 746 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"localNav\">\n  <div class=\"localNavRow\">\n    <div class=\"localNavRow__section\">\n      <div class=\"localBreadcrumbs\">\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            Discover\n          </a>\n        </div>\n\n        <div class=\"localBreadcrumb\">\n          <a class=\"localBreadcrumb__link\" href=\"#\">\n            <span class=\"localBreadcrumb__emphasis\">0</span> <span>hits</span>\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"localNavRow__section\">\n      <div class=\"localMenu\">\n        <button class=\"localMenuItem\">\n          New\n        </button>\n\n        <button class=\"localMenuItem\">\n          Save\n        </button>\n\n        <button class=\"localMenuItem\">\n          Open\n        </button>\n\n        <button class=\"localMenuItem\">\n          <div class=\"localMenuItem__icon fa fa-clock-o\"></div>\n          Last 5 minutes\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"localNavRow localNavRow--secondary\">\n    <div class=\"localTabs\">\n      <a class=\"localTab localTab-isSelected\" href=\"#\">\n        Overview\n      </a>\n\n      <a class=\"localTab\" href=\"#\">\n        Your Documents\n      </a>\n\n      <a class=\"localTab\" href=\"#\">\n        Another Tab\n      </a>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 729 */
+/* 747 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
+	  title: 'Table',
+	  html: __webpack_require__(748),
+	  js: __webpack_require__(749),
+	  hasDarkTheme: false
+	}, {
+	  title: 'ControlledTable',
+	  html: __webpack_require__(750),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 748 */
+/***/ function(module, exports) {
+
+	module.exports = "<table class=\"table\">\n  <thead>\n    <tr>\n      <th class=\"tableHeaderCell tableHeaderCell--checkBox\">\n        <input type=\"checkbox\" class=\"checkBox\">\n      </th>\n      <th class=\"tableHeaderCell tableHeaderCell--sortable\" data-demo-sortable-column>\n        Title\n        <span data-sort-icon-ascending class=\"tableSortIcon icon fa-long-arrow-up\"></span>\n        <span data-sort-icon-descending class=\"tableSortIcon icon fa-long-arrow-down\"></span>\n      </th>\n      <th class=\"tableHeaderCell tableHeaderCell--sortable\" data-demo-sortable-column>\n        Status\n        <span data-sort-icon-ascending class=\"tableSortIcon icon fa-long-arrow-up\"></span>\n        <span data-sort-icon-descending class=\"tableSortIcon icon fa-long-arrow-down\"></span>\n      </th>\n      <th class=\"tableHeaderCell\">\n        Date created\n      </th>\n      <th class=\"tableHeaderCell\">\n        Date last modified\n      </th>\n    </tr>\n  </thead>\n\n  <tbody>\n    <tr>\n      <td class=\"tableRowCell tableRowCell--checkBox\">\n        <input type=\"checkbox\" class=\"checkBox\">\n      </td>\n      <td class=\"tableRowCell\">\n        <a class=\"link\" href=\"#\">Alligator</a>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"icon icon--success fa-check\"></div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n    </tr>\n\n    <tr>\n      <td class=\"tableRowCell tableRowCell--checkBox\">\n        <input type=\"checkbox\" class=\"checkBox\">\n      </td>\n      <td class=\"tableRowCell\">\n        <a class=\"link\" href=\"#\">Boomerang</a>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"icon icon--success fa-check\"></div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n    </tr>\n\n    <tr>\n      <td class=\"tableRowCell tableRowCell--checkBox\">\n        <input type=\"checkbox\" class=\"checkBox\">\n      </td>\n      <td class=\"tableRowCell\">\n        <a class=\"link\" href=\"#\">Celebration</a>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"icon icon--warning fa-bolt\"></div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n    </tr>\n\n    <tr>\n      <td class=\"tableRowCell tableRowCell--checkBox\">\n        <input type=\"checkbox\" class=\"checkBox\">\n      </td>\n      <td class=\"tableRowCell\">\n        <a class=\"link\" href=\"#\">Dog</a>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"icon icon--error fa-warning\"></div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n      <td class=\"tableRowCell\">\n        <div class=\"tableRowCell__liner\">\n          Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n        </div>\n      </td>\n    </tr>\n  </tbody>\n</table>\n";
+
+/***/ },
+/* 749 */
+/***/ function(module, exports) {
+
+	module.exports = "'use strict';\n\n// Hide all icons initially.\n$('[data-sort-icon-ascending]').hide();\n$('[data-sort-icon-descending]').hide();\n\nvar demoSortableColumns = $('[data-demo-sortable-column]');\n\nvar sortedColumn = void 0;\nvar isSortAscending = true;\n\nfunction sortColumn(column) {\n  if (sortedColumn) {\n    if (column === sortedColumn) {\n      // If we clicked the currently selected one, then reverse the sort.\n      isSortAscending = !isSortAscending;\n    } else {\n      // Otherwise, \"deselect\" the old column by hiding its icons.\n      var _$sortedColumn = $(sortedColumn);\n      _$sortedColumn.removeClass('tableHeaderCell-isSorted');\n      var _ascendingIcon = _$sortedColumn.find('[data-sort-icon-ascending]');\n      var _descendingIcon = _$sortedColumn.find('[data-sort-icon-descending]');\n      _ascendingIcon.hide();\n      _descendingIcon.hide();\n    }\n  }\n\n  // Update the visual state of the sortedColumn.\n  sortedColumn = column;\n  var $sortedColumn = $(sortedColumn);\n  $sortedColumn.addClass('tableHeaderCell-isSorted');\n  var ascendingIcon = $(sortedColumn).find('[data-sort-icon-ascending]');\n  var descendingIcon = $(sortedColumn).find('[data-sort-icon-descending]');\n  if (isSortAscending) {\n    ascendingIcon.show();\n    descendingIcon.hide();\n  } else {\n    ascendingIcon.hide();\n    descendingIcon.show();\n  }\n}\n\n// Sort on the first column by default.\nsortColumn(demoSortableColumns[0]);\n\n$(demoSortableColumns).on('click', function (event) {\n  sortColumn(event.target);\n});\n\n$(demoSortableColumns).on('mouseover', function (event) {\n  var column = event.target;\n  if (column !== sortedColumn) {\n    var icon = isSortAscending ? $(column).find('[data-sort-icon-ascending]') : $(column).find('[data-sort-icon-descending]');\n    icon.show();\n  }\n});\n\n$(demoSortableColumns).on('mouseout', function (event) {\n  var column = event.target;\n  if (column !== sortedColumn) {\n    var icon = isSortAscending ? $(column).find('[data-sort-icon-ascending]') : $(column).find('[data-sort-icon-descending]');\n    icon.hide();\n  }\n});"
+
+/***/ },
+/* 750 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"controlledTable\">\n  <!-- ToolBar -->\n  <div class=\"toolBar\">\n    <div class=\"toolBarSearch\">\n      <div class=\"toolBarSearchBox\">\n        <div class=\"toolBarSearchBox__icon icon fa-search\"></div>\n        <input\n          class=\"toolBarSearchBox__input\"\n          type=\"text\"\n          placeholder=\"Search...\"\n        >\n      </div>\n    </div>\n\n    <div class=\"toolBarSection\">\n      <button class=\"button button--primary\">\n        Add\n      </button>\n\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-gear\"></span>\n      </button>\n\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-bars\"></span>\n      </button>\n    </div>\n\n    <div class=\"toolBarSection\">\n      <div class=\"toolBarText\">\n        1 &ndash; 20 of 33\n      </div>\n\n      <div class=\"buttonGroup\">\n        <button class=\"button button--basic button--icon\">\n          <span class=\"button__icon icon fa-chevron-left\"></span>\n        </button>\n        <button class=\"button button--basic button--icon\">\n          <span class=\"button__icon icon fa-chevron-right\"></span>\n        </button>\n      </div>\n    </div>\n  </div>\n\n  <!-- Table -->\n  <table class=\"table\">\n    <thead>\n      <tr>\n        <th class=\"tableHeaderCell tableHeaderCell--checkBox\">\n          <input type=\"checkbox\" class=\"checkBox\">\n        </th>\n        <th class=\"tableHeaderCell\">\n          Title\n        </th>\n        <th class=\"tableHeaderCell\">\n          Status\n        </th>\n        <th class=\"tableHeaderCell\">\n          Date created\n        </th>\n        <th class=\"tableHeaderCell\">\n          Date last modified\n        </th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr>\n        <td class=\"tableRowCell tableRowCell--checkBox\">\n          <input type=\"checkbox\" class=\"checkBox\">\n        </td>\n        <td class=\"tableRowCell\">\n          <a class=\"link\" href=\"#\">Alligator</a>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"icon icon--success fa-check\"></div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n      </tr>\n\n      <tr>\n        <td class=\"tableRowCell tableRowCell--checkBox\">\n          <input type=\"checkbox\" class=\"checkBox\">\n        </td>\n        <td class=\"tableRowCell\">\n          <a class=\"link\" href=\"#\">Boomerang</a>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"icon icon--success fa-check\"></div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n      </tr>\n\n      <tr>\n        <td class=\"tableRowCell tableRowCell--checkBox\">\n          <input type=\"checkbox\" class=\"checkBox\">\n        </td>\n        <td class=\"tableRowCell\">\n          <a class=\"link\" href=\"#\">Celebration</a>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"icon icon--warning fa-bolt\"></div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n      </tr>\n\n      <tr>\n        <td class=\"tableRowCell tableRowCell--checkBox\">\n          <input type=\"checkbox\" class=\"checkBox\">\n        </td>\n        <td class=\"tableRowCell\">\n          <a class=\"link\" href=\"#\">Dog</a>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"icon icon--error fa-warning\"></div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n        <td class=\"tableRowCell\">\n          <div class=\"tableRowCell__liner\">\n            Tue Dec 06 2016 12:56:15 GMT-0800 (PST)\n          </div>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n\n  <!-- ToolBarFooter -->\n  <div class=\"toolBarFooter\">\n    <div class=\"toolBarFooterSection\">\n      <div class=\"toolBarText\">\n        1 &ndash; 20 of 33\n      </div>\n\n      <div class=\"buttonGroup\">\n        <button class=\"button button--basic button--icon\">\n          <span class=\"button__icon icon fa-chevron-left\"></span>\n        </button>\n        <button class=\"button button--basic button--icon\">\n          <span class=\"button__icon icon fa-chevron-right\"></span>\n        </button>\n      </div>\n    </div>\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 751 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _services = __webpack_require__(561);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _services.createExample)([{
+	  title: 'ToolBar',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the ToolBar to surface controls for manipulating and filtering content, e.g. in a list, table, or menu.'
+	  ),
+	  html: __webpack_require__(752),
+	  hasDarkTheme: false
+	}, {
+	  title: 'ToolBarFooter',
+	  description: _react2.default.createElement(
+	    'p',
+	    null,
+	    'Use the ToolBarFooter in conjunction with the ToolBar. It can surface secondary controls or a subset of the primary controls.'
+	  ),
+	  html: __webpack_require__(753),
+	  hasDarkTheme: false
+	}]);
+
+/***/ },
+/* 752 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"toolBar\">\n  <div class=\"toolBarSearch\">\n    <div class=\"toolBarSearchBox\">\n      <div class=\"toolBarSearchBox__icon icon fa-search\"></div>\n      <input\n        class=\"toolBarSearchBox__input\"\n        type=\"text\"\n        placeholder=\"Search...\"\n      >\n    </div>\n  </div>\n\n  <div class=\"toolBarSection\">\n    <button class=\"button button--primary\">\n      Add\n    </button>\n\n    <button class=\"button button--basic button--icon\">\n      <span class=\"button__icon icon fa-gear\"></span>\n    </button>\n\n    <button class=\"button button--basic button--icon\">\n      <span class=\"button__icon icon fa-bars\"></span>\n    </button>\n  </div>\n\n  <div class=\"toolBarSection\">\n    <div class=\"toolBarText\">\n      1 &ndash; 20 of 33\n    </div>\n\n    <div class=\"buttonGroup\">\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-chevron-left\"></span>\n      </button>\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-chevron-right\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
+
+/***/ },
+/* 753 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"toolBarFooter\">\n  <div class=\"toolBarFooterSection\">\n    <div class=\"toolBarText\">\n      1 &ndash; 20 of 33\n    </div>\n\n    <div class=\"buttonGroup\">\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-chevron-left\"></span>\n      </button>\n      <button class=\"button button--basic button--icon\">\n        <span class=\"button__icon icon fa-chevron-right\"></span>\n      </button>\n    </div>\n  </div>\n</div>\n";
+
+/***/ },
+/* 754 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -62333,13 +62789,14 @@
 			"start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
 			"build": "./node_modules/.bin/webpack",
 			"deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework",
-			"dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./dist/framework.css",
+			"dist": "node-sass ./src/framework/framework.scss ./dist/framework.css",
 			"preversion": "npm run dist",
 			"postversion": "npm run deploy"
 		},
 		"dependencies": {},
 		"devDependencies": {
 			"@elastic/eslint-config-kibana": "0.1.0",
+			"autoprefixer": "6.5.3",
 			"babel-core": "6.10.4",
 			"babel-eslint": "4.1.8",
 			"babel-loader": "6.2.4",
@@ -62362,7 +62819,7 @@
 			"json-loader": "0.5.4",
 			"keymirror": "0.1.1",
 			"node-sass": "3.8.0",
-			"numeral": "1.5.3",
+			"postcss-loader": "1.2.0",
 			"raw-loader": "0.5.1",
 			"react": "15.2.0",
 			"react-addons-test-utils": "15.2.0",
@@ -62380,7 +62837,7 @@
 	};
 
 /***/ },
-/* 730 */
+/* 755 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62389,7 +62846,7 @@
 	  value: true
 	});
 	
-	var _code_viewer_actions = __webpack_require__(731);
+	var _code_viewer_actions = __webpack_require__(756);
 	
 	Object.defineProperty(exports, 'CodeViewerActions', {
 	  enumerable: true,
@@ -62401,7 +62858,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 731 */
+/* 756 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62455,7 +62912,7 @@
 	};
 
 /***/ },
-/* 732 */
+/* 757 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62517,7 +62974,7 @@
 	exports.default = HomeView;
 
 /***/ },
-/* 733 */
+/* 758 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62570,23 +63027,23 @@
 	exports.default = NotFoundView;
 
 /***/ },
-/* 734 */
+/* 759 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(735);
+	var content = __webpack_require__(760);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(737)(content, {});
+	var update = __webpack_require__(762)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/postcss-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/postcss-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -62596,21 +63053,21 @@
 	}
 
 /***/ },
-/* 735 */
+/* 760 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(736)();
+	exports = module.exports = __webpack_require__(761)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "/**\n * 1. Breadcrumbs are placed in the top-left corner and need to be bumped over\n *    a bit.\n */\n.localBreadcrumbs {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding-left: 10px;\n  /* 1 */ }\n\n.localBreadcrumb + .localBreadcrumb {\n  margin-left: 6px; }\n  .localBreadcrumb + .localBreadcrumb:before {\n    content: '/';\n    user-select: none;\n    margin-right: 4px;\n    color: #5a5a5a; }\n    .theme-dark .localBreadcrumb + .localBreadcrumb:before {\n      color: #a5a5a5; }\n\n.localBreadcrumb:last-child .localBreadcrumb__link {\n  pointer-events: none;\n  color: #2d2d2d; }\n  .theme-dark .localBreadcrumb:last-child .localBreadcrumb__link {\n    color: #cecece; }\n\n.localBreadcrumb__link {\n  font-size: 14px;\n  color: #5a5a5a;\n  text-decoration: none; }\n  .localBreadcrumb__link:hover {\n    text-decoration: underline; }\n  .theme-dark .localBreadcrumb__link {\n    color: #dedede; }\n\n.localBreadcrumb__emphasis {\n  font-weight: 700; }\n\n.localDropdown {\n  padding: 10px 10px 14px;\n  background-color: #f6f6f6;\n  line-height: 20px; }\n  .theme-dark .localDropdown {\n    background-color: #525252; }\n\n.localDropdownPanels {\n  display: flex; }\n\n.localDropdownPanel {\n  flex: 1 1 0%; }\n\n.localDropdownPanel--left {\n  margin-right: 30px; }\n\n.localDropdownPanel--right {\n  margin-left: 30px; }\n\n.localDropdownTitle {\n  margin-bottom: 12px;\n  font-size: 18px;\n  color: #2d2d2d; }\n  .theme-dark .localDropdownTitle {\n    color: #cecece; }\n\n.localDropdownSection {\n  margin-bottom: 16px; }\n  .localDropdownSection:last-child {\n    margin-bottom: 0; }\n\n.localDropdownHeader {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 6px; }\n\n.localDropdownHeader__label {\n  font-size: 14px;\n  font-weight: 700;\n  color: #2d2d2d; }\n  .theme-dark .localDropdownHeader__label {\n    color: #cecece; }\n\n.localDropdownHeader__actions {\n  display: flex; }\n\n.localDropdownHeader__action {\n  color: #328CAA;\n  font-size: 12px;\n  text-decoration: none;\n  cursor: pointer; }\n  .localDropdownHeader__action + .localDropdownHeader__action {\n    margin-left: 10px; }\n  .localDropdownHeader__action:hover, .localDropdownHeader__action:active {\n    color: #105A73; }\n  .theme-dark .localDropdownHeader__action {\n    color: #b7e2ea; }\n    .theme-dark .localDropdownHeader__action:hover, .theme-dark .localDropdownHeader__action:active {\n      color: #def2f6; }\n\n.localDropdownInput {\n  display: block;\n  width: 100%;\n  margin-bottom: 12px;\n  padding: 5px 15px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #ffffff;\n  border: 2px solid #ffffff;\n  border-radius: 4px; }\n  .theme-dark .localDropdownInput {\n    color: #cecece;\n    background-color: #444444;\n    border-color: #444444; }\n\n.localDropdownFormNote {\n  font-size: 14px;\n  color: #737373; }\n  .theme-dark .localDropdownFormNote {\n    color: #a2a2a2; }\n\n.localDropdownWarning {\n  margin-bottom: 16px;\n  padding: 6px 10px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #e4e4e4; }\n  .theme-dark .localDropdownWarning {\n    color: #cecece;\n    background-color: #636363; }\n\n.localDropdownHelpText {\n  margin-bottom: 16px;\n  font-size: 14px;\n  color: #2D2D2D; }\n  .theme-dark .localDropdownHelpText {\n    color: #9e9e9e; }\n\n.localMenu {\n  display: flex;\n  align-items: center;\n  height: 100%; }\n\n.localMenuItem {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding: 0 10px;\n  font-size: 14px;\n  background-color: transparent;\n  color: #5a5a5a;\n  border: 0;\n  cursor: pointer; }\n  .localMenuItem:hover {\n    background-color: rgba(0, 0, 0, 0.1);\n    color: #000000; }\n  .localMenuItem.localMenuItem-isSelected {\n    background-color: #f6f6f6; }\n  .localMenuItem.localMenuItem-isDisabled {\n    opacity: 0.5;\n    cursor: default;\n    pointer-events: none; }\n  .theme-dark .localMenuItem {\n    color: #dedede; }\n    .theme-dark .localMenuItem:hover {\n      background-color: #000000;\n      color: #ffffff; }\n    .theme-dark .localMenuItem.localMenuItem-isSelected {\n      background-color: #525252; }\n\n.localMenuItem__icon {\n  margin-right: 5px;\n  margin-bottom: -1px; }\n\n/**\n * 1. Match height of logo in side bar, but allow it to expand to accommodate\n *    dropdown.\n */\n.localNav {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 70px;\n  /* 1 */\n  color: #2d2d2d;\n  background-color: #e4e4e4; }\n  .theme-dark .localNav {\n    color: #cecece;\n    background-color: #333333; }\n\n.localNavRow {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 32px; }\n\n.localNavRow__section {\n  height: 100%; }\n\n.localNavRow--secondary {\n  height: 38px;\n  padding: 0 10px; }\n\n.localSearch {\n  display: flex;\n  width: 100%;\n  height: 30px; }\n\n.localSearchInput {\n  flex: 1 1 100%;\n  padding: 5px 15px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #ffffff;\n  border: 2px solid #ffffff;\n  border-bottom-left-radius: 4px;\n  border-top-left-radius: 4px;\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0; }\n  .localSearchInput.localSearchInput-isInvalid {\n    border-color: #e74C3c; }\n  .theme-dark .localSearchInput {\n    color: #cecece;\n    background-color: #4e4e4e;\n    border-color: #4e4e4e; }\n    .theme-dark .localSearchInput.localSearchInput-isInvalid {\n      border-color: #ff6758; }\n\n.localSearchButton {\n  width: 43px;\n  height: 30px;\n  font-size: 14px;\n  color: #ffffff;\n  background-color: #9c9c9c;\n  border: 0;\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n  border-bottom-right-radius: 4px;\n  border-top-right-radius: 4px; }\n  .theme-dark .localSearchButton {\n    color: #ffffff;\n    background-color: #777777; }\n\n/**\n * 1. We want the bottom border on selected tabs to be flush with the bottom of the container.\n */\n.localTabs {\n  display: flex;\n  align-items: flex-end;\n  height: 100%; }\n\n/**\n   * 1. Make sure the bottom border is flush with the bottom of the LocalNav.\n   */\n.localTab {\n  padding: 5px 0 6px 0;\n  font-size: 18px;\n  line-height: 22px;\n  /* 1 */\n  color: #5a5a5a;\n  border-bottom: 2px solid transparent;\n  text-decoration: none;\n  cursor: pointer; }\n  .localTab:hover, .localTab:active {\n    color: #000000; }\n    .theme-dark .localTab:hover, .theme-dark .localTab:active {\n      color: #ffffff; }\n  .localTab.localTab-isSelected {\n    color: #000000;\n    border-bottom-color: #000000;\n    cursor: default; }\n    .theme-dark .localTab.localTab-isSelected {\n      color: #ffffff;\n      border-bottom-color: #ffffff; }\n  .localTab + .localTab {\n    margin-left: 15px; }\n  .theme-dark .localTab {\n    color: #dedede; }\n\n.localTitle {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding-left: 10px;\n  font-size: 14px;\n  font-weight: bold; }\n\n.guideHome {\n  display: flex;\n  justify-content: center; }\n\n.guideHome__panel {\n  width: 100%;\n  max-width: 600px;\n  max-height: 500px;\n  padding: 60px;\n  margin-bottom: 20px;\n  border-radius: 3px;\n  background-color: #e8e8e8;\n  line-height: 24px; }\n\n.guideHome__panelTitle {\n  font-weight: 700;\n  font-size: 22px;\n  margin-bottom: 20px; }\n\n.guideHome__panelText {\n  font-size: 18px; }\n\n.guide {\n  display: flex;\n  height: 100%; }\n\n.guideContent {\n  flex: 1 1 auto;\n  padding-top: 100px;\n  transition: padding-right 0.2s ease; }\n  .guideContent.is-code-viewer-open {\n    padding-right: 700px; }\n    @media only screen and (max-width: 1900px) {\n      .guideContent.is-code-viewer-open {\n        padding-right: 580px; } }\n\n.guideCodeViewer {\n  position: fixed;\n  top: 60px;\n  right: 0;\n  bottom: 0;\n  width: 700px;\n  padding: 40px 20px 40px 0;\n  background-color: white;\n  transform: translateX(700px);\n  transition: transform 0.2s ease;\n  overflow: auto; }\n  .guideCodeViewer::-webkit-scrollbar {\n    width: 16px;\n    height: 16px; }\n  .guideCodeViewer::-webkit-scrollbar-thumb {\n    background-color: rgba(69, 77, 88, 0.4);\n    border: 6px solid transparent;\n    background-clip: content-box; }\n  .guideCodeViewer::-webkit-scrollbar-track {\n    background-color: transparent; }\n  @media only screen and (max-width: 1900px) {\n    .guideCodeViewer {\n      width: 580px; } }\n  .guideCodeViewer.is-code-viewer-open {\n    transform: translateX(0); }\n\n.guideCodeViewer__header {\n  padding-bottom: 10px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6;\n  font-size: 18px;\n  font-weight: 700;\n  margin-bottom: 10px; }\n\n.guideCodeViewer__closeButton {\n  position: absolute;\n  top: 5px;\n  right: 5px;\n  cursor: pointer;\n  padding: 10px;\n  border-radius: 3px;\n  color: #6b7490; }\n  .guideCodeViewer__closeButton:hover {\n    color: #2b52cc; }\n\n.guideCodeViewer__title {\n  padding-bottom: 6px;\n  border-bottom: 1px solid #d6d6d6;\n  line-height: 24px;\n  font-size: 14px; }\n\n.guideCodeViewer__content {\n  margin: 0 0 16px; }\n\n.hljs {\n  display: block;\n  padding: 15px 20px;\n  color: #637c84;\n  font-size: 14px;\n  line-height: 1.3;\n  font-family: 'Ubuntu Mono', monospace; }\n\n.hljs-keyword {\n  color: #b58900; }\n\n.hljs-function .hljs-keyword {\n  color: #268bd2; }\n\n.hljs-function .hljs-title {\n  color: #7441c6; }\n\n.hljs-built_in {\n  color: #268bd2; }\n\n.hljs-string {\n  color: #36958e; }\n\n.hljs-comment {\n  color: #9d9d9d; }\n\n.hljs-number,\n.hljs-literal {\n  color: #d84a7e; }\n\n.hljs-tag .hljs-name {\n  color: #63a35c; }\n\n.hljs-tag .hljs-attr {\n  color: #795da3; }\n\n.hljs-tag .hljs-string {\n  color: #df5000; }\n\n.guideNav {\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  padding: 0 20px;\n  background-color: #e8488b;\n  color: #ffffff;\n  box-shadow: inset 0 -20px 18px rgba(90, 16, 41, 0.2), inset 0 -5px 4px rgba(90, 16, 41, 0.3);\n  transition: height 0.3s ease;\n  overflow: hidden; }\n  .guideNav.is-guide-nav-open {\n    height: 100%; }\n\n.guideNav__header {\n  display: flex;\n  align-items: center;\n  height: 60px; }\n\n.guideNav__menu {\n  cursor: pointer;\n  margin-right: 10px;\n  padding: 10px;\n  border-radius: 3px; }\n  .guideNav__menu.is-menu-button-pinned, .guideNav__menu:hover {\n    background-color: rgba(0, 0, 0, 0.15); }\n  .guideNav__menu:active {\n    background-color: rgba(0, 0, 0, 0.2);\n    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2); }\n\n.guideNav__title {\n  color: white;\n  text-decoration: none;\n  font-size: 18px; }\n\n.guideNav__version {\n  margin-left: 10px;\n  font-weight: 300;\n  font-size: 14px; }\n\n.guideNavItem {\n  color: white;\n  text-decoration: none;\n  font-size: 20px;\n  padding: 10px;\n  border-radius: 3px; }\n  .guideNavItem:hover {\n    background-color: rgba(0, 0, 0, 0.15); }\n\n.guidePage {\n  display: flex; }\n\n.guidePageBody {\n  flex: 1 1 auto;\n  padding: 0 80px 0 480px; }\n  @media only screen and (max-width: 1900px) {\n    .guidePageBody {\n      padding: 0 20px 0 220px; } }\n\n.guidePageSection {\n  margin-bottom: 40px; }\n\n.guidePageSection__header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 10px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6; }\n\n.guidePageSection__title {\n  font-size: 18px;\n  font-weight: 700; }\n\n.guidePageSection__sourceButton {\n  line-height: 10px;\n  padding: 4px 10px;\n  background-color: #19a8e0;\n  color: white;\n  border-radius: 3px;\n  cursor: pointer; }\n  .guidePageSection__sourceButton:hover {\n    box-shadow: inset 0 1px 0 #95e1ff, 0 2px 4px rgba(0, 0, 0, 0.2); }\n  .guidePageSection__sourceButton:active {\n    box-shadow: inset 0 20px 20px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.2); }\n\n.guidePageSection__description {\n  font-size: 14px;\n  line-height: 21px; }\n\n.guidePageSection__example + .guidePageSection__example {\n  margin-top: 20px; }\n\n.guidePageSection__example--standalone {\n  margin-top: 10px; }\n\n.guidePageSideNav {\n  position: fixed;\n  top: 100px;\n  left: 0;\n  bottom: 0;\n  width: 400px;\n  padding: 0 20px 30px 80px;\n  overflow: auto; }\n  .guidePageSideNav::-webkit-scrollbar {\n    width: 16px;\n    height: 16px; }\n  .guidePageSideNav::-webkit-scrollbar-thumb {\n    background-color: rgba(69, 77, 88, 0.4);\n    border: 6px solid transparent;\n    background-clip: content-box; }\n  .guidePageSideNav::-webkit-scrollbar-track {\n    background-color: transparent; }\n  @media only screen and (max-width: 1900px) {\n    .guidePageSideNav {\n      padding: 0 20px 30px 20px;\n      width: 220px; } }\n\n.guidePageSideNav__title {\n  padding-bottom: 10px;\n  margin-bottom: 10px;\n  font-size: 22px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6;\n  opacity: 0.8; }\n\n.guidePageSideNavMenu {\n  line-height: 24px; }\n\n.guidePageSideNavMenu__item + .guidePageSideNavMenu__item {\n  margin-top: 6px; }\n\n.guidePageSideNavMenu__itemLink {\n  cursor: pointer;\n  color: #6b7490;\n  text-decoration: none; }\n  .guidePageSideNavMenu__itemLink:hover {\n    color: #2b52cc; }\n\n* {\n  box-sizing: border-box; }\n\nhtml,\nbody {\n  height: 100%; }\n\n/**\n * 1. Insane line-height makes it easier to notice when components are relying\n *    on styles inherited from body.\n */\nbody {\n  font-family: 'Lato', 'Helvetica Neue', sans-serif;\n  background: #ffffff;\n  line-height: 40px;\n  /* 1 */\n  margin: 0; }\n", ""]);
+	exports.push([module.id, "/**\n * 1. Make sure outline doesn't get hidden beneath adjacent elements.\n */\n* {\n  box-sizing: border-box; }\n\nbody {\n  font-family: \"Open Sans\", Helvetica, Arial, sans-serif; }\n\n.button {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding: 4px 12px 5px;\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.5;\n  text-decoration: none;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer; }\n  .button:disabled {\n    cursor: default; }\n  .button:hover:enabled {\n    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05); }\n  .button:active:enabled {\n    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 2px 4px rgba(0, 0, 0, 0.05); }\n  .button:focus {\n    z-index: 1;\n    /* 1 */\n    outline: 1px dotted #5aadff;\n    outline-offset: 2px; }\n\n.button--iconText .button__icon {\n  margin-right: 4px; }\n\n.button--basic {\n  color: #191E23;\n  background-color: #F2F2F2; }\n  .button--basic:hover:enabled {\n    background-color: #e4e4e4; }\n  .button--basic:active:enabled {\n    background-color: #d8d8d8; }\n  .button--basic:disabled {\n    color: #9B9B9B; }\n\n.button--primary {\n  background-color: #6EADC1;\n  color: #FFFFFF; }\n  .button--primary:hover:enabled {\n    background-color: #006D89; }\n  .button--primary:active:enabled {\n    background-color: #00586A; }\n  .button--primary:disabled {\n    background-color: #B6D6E0; }\n\n.button--danger {\n  background-color: #D76051;\n  color: #FFFFFF; }\n  .button--danger:hover:enabled {\n    background-color: #B94233; }\n  .button--danger:active:enabled {\n    background-color: #A52E1F; }\n  .button--danger:disabled {\n    background-color: #ebbeb8; }\n\n.buttonGroup {\n  display: -ms-flexbox;\n  display: flex; }\n  .buttonGroup > .button:not(:first-child):not(:last-child) {\n    border-radius: 0; }\n  .buttonGroup > .button:first-child {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0; }\n  .buttonGroup > .button:last-child {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0; }\n  .buttonGroup .button + .button {\n    margin-left: 2px; }\n\n.checkBox {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-color: #FFFFFF;\n  border: 1px solid #BEBEBE;\n  border-radius: 4px;\n  width: 16px;\n  height: 16px;\n  line-height: 1.5;\n  transition: background-color 0.1s linear; }\n  .checkBox:before {\n    position: relative;\n    top: -0.05em;\n    left: 0.15em;\n    font-family: FontAwesome;\n    content: \"\\F00C\";\n    font-size: 1em;\n    opacity: 0;\n    color: #ffffff;\n    transition: opacity 0.1s linear; }\n  .checkBox:checked {\n    border-color: #328CAA;\n    background-color: #328CAA; }\n    .checkBox:checked:before {\n      opacity: 1; }\n  .checkBox:focus {\n    z-index: 1;\n    /* 1 */\n    outline: 1px dotted #5aadff;\n    outline-offset: 2px; }\n\n.textInput {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding: 3px 12px 4px;\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.5;\n  background-color: #ffffff;\n  border: 1px solid #DEDEDE;\n  color: #191E23;\n  border-radius: 4px;\n  transition: border-color 0.1s linear; }\n  .textInput:invalid {\n    border-color: #D86051; }\n  .textInput:focus {\n    z-index: 1;\n    /* 1 */\n    outline: 1px dotted #5aadff;\n    outline-offset: 2px;\n    border-color: #6EADC1; }\n\n/**\n * 1. Copied from FontAwesome's .fa class. We use a custom class to make it easier to migrate away\n *    from FontAwesome someday. When we do migrate away, we can just update this definition.\n */\n.icon {\n  display: inline-block;\n  /* 1 */\n  font: normal normal normal 14px/1 FontAwesome;\n  /* 1 */\n  font-size: inherit;\n  /* 1 */\n  text-rendering: auto;\n  /* 1 */\n  -webkit-font-smoothing: antialiased;\n  /* 1 */\n  -moz-osx-font-smoothing: grayscale;\n  /* 1 */ }\n\n.icon--success {\n  color: #417505; }\n\n.icon--warning {\n  color: #ffac15; }\n\n.icon--error {\n  color: #D86051; }\n\n.link {\n  color: #006E8A;\n  text-decoration: none; }\n  .link:visited, .link:hover, .link:active {\n    color: #006E8A; }\n  .link:hover {\n    text-decoration: underline; }\n\n/**\n * 1. Breadcrumbs are placed in the top-left corner and need to be bumped over\n *    a bit.\n */\n.localBreadcrumbs {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  height: 100%;\n  padding-left: 10px;\n  /* 1 */ }\n\n.localBreadcrumb + .localBreadcrumb {\n  margin-left: 6px; }\n  .localBreadcrumb + .localBreadcrumb:before {\n    content: '/';\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    margin-right: 4px;\n    color: #5a5a5a; }\n    .theme-dark .localBreadcrumb + .localBreadcrumb:before {\n      color: #a5a5a5; }\n\n.localBreadcrumb:last-child .localBreadcrumb__link {\n  pointer-events: none;\n  color: #2d2d2d; }\n  .theme-dark .localBreadcrumb:last-child .localBreadcrumb__link {\n    color: #cecece; }\n\n.localBreadcrumb__link {\n  font-size: 14px;\n  color: #5a5a5a;\n  text-decoration: none; }\n  .localBreadcrumb__link:hover {\n    text-decoration: underline; }\n  .theme-dark .localBreadcrumb__link {\n    color: #dedede; }\n\n.localBreadcrumb__emphasis {\n  font-weight: 700; }\n\n.localDropdown {\n  padding: 10px 10px 14px;\n  background-color: #f6f6f6;\n  line-height: 20px; }\n  .theme-dark .localDropdown {\n    background-color: #525252; }\n\n.localDropdownPanels {\n  display: -ms-flexbox;\n  display: flex; }\n\n.localDropdownPanel {\n  -ms-flex: 1 1 0%;\n      flex: 1 1 0%; }\n\n.localDropdownPanel--left {\n  margin-right: 30px; }\n\n.localDropdownPanel--right {\n  margin-left: 30px; }\n\n.localDropdownTitle {\n  margin-bottom: 12px;\n  font-size: 18px;\n  color: #2d2d2d; }\n  .theme-dark .localDropdownTitle {\n    color: #cecece; }\n\n.localDropdownSection {\n  margin-bottom: 16px; }\n  .localDropdownSection:last-child {\n    margin-bottom: 0; }\n\n.localDropdownHeader {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  margin-bottom: 6px; }\n\n.localDropdownHeader__label {\n  font-size: 14px;\n  font-weight: 700;\n  color: #2d2d2d; }\n  .theme-dark .localDropdownHeader__label {\n    color: #cecece; }\n\n.localDropdownHeader__actions {\n  display: -ms-flexbox;\n  display: flex; }\n\n.localDropdownHeader__action {\n  color: #328CAA;\n  font-size: 12px;\n  text-decoration: none;\n  cursor: pointer; }\n  .localDropdownHeader__action + .localDropdownHeader__action {\n    margin-left: 10px; }\n  .localDropdownHeader__action:hover, .localDropdownHeader__action:active {\n    color: #105A73; }\n  .theme-dark .localDropdownHeader__action {\n    color: #b7e2ea; }\n    .theme-dark .localDropdownHeader__action:hover, .theme-dark .localDropdownHeader__action:active {\n      color: #def2f6; }\n\n.localDropdownInput {\n  display: block;\n  width: 100%;\n  margin-bottom: 12px;\n  padding: 5px 15px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #ffffff;\n  border: 2px solid #ffffff;\n  border-radius: 4px; }\n  .theme-dark .localDropdownInput {\n    color: #cecece;\n    background-color: #444444;\n    border-color: #444444; }\n\n.localDropdownFormNote {\n  font-size: 14px;\n  color: #737373; }\n  .theme-dark .localDropdownFormNote {\n    color: #a2a2a2; }\n\n.localDropdownWarning {\n  margin-bottom: 16px;\n  padding: 6px 10px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #e4e4e4; }\n  .theme-dark .localDropdownWarning {\n    color: #cecece;\n    background-color: #636363; }\n\n.localDropdownHelpText {\n  margin-bottom: 16px;\n  font-size: 14px;\n  color: #2D2D2D; }\n  .theme-dark .localDropdownHelpText {\n    color: #9e9e9e; }\n\n.localMenu {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  height: 100%; }\n\n.localMenuItem {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  height: 100%;\n  padding: 0 10px;\n  font-size: 14px;\n  background-color: transparent;\n  color: #5a5a5a;\n  border: 0;\n  cursor: pointer; }\n  .localMenuItem:hover {\n    background-color: rgba(0, 0, 0, 0.1);\n    color: #000000; }\n  .localMenuItem.localMenuItem-isSelected {\n    background-color: #f6f6f6; }\n  .localMenuItem.localMenuItem-isDisabled {\n    opacity: 0.5;\n    cursor: default;\n    pointer-events: none; }\n  .theme-dark .localMenuItem {\n    color: #dedede; }\n    .theme-dark .localMenuItem:hover {\n      background-color: #000000;\n      color: #ffffff; }\n    .theme-dark .localMenuItem.localMenuItem-isSelected {\n      background-color: #525252; }\n\n.localMenuItem__icon {\n  margin-right: 5px;\n  margin-bottom: -1px; }\n\n/**\n * 1. Match height of logo in side bar, but allow it to expand to accommodate\n *    dropdown.\n */\n.localNav {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  min-height: 70px;\n  /* 1 */\n  color: #2d2d2d;\n  background-color: #e4e4e4; }\n  .theme-dark .localNav {\n    color: #cecece;\n    background-color: #333333; }\n\n.localNavRow {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  height: 32px; }\n\n.localNavRow__section {\n  height: 100%; }\n\n.localNavRow--secondary {\n  height: 38px;\n  padding: 0 10px; }\n\n.localSearch {\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 30px; }\n\n.localSearchInput {\n  -ms-flex: 1 1 100%;\n      flex: 1 1 100%;\n  padding: 5px 15px;\n  font-size: 14px;\n  color: #2d2d2d;\n  background-color: #ffffff;\n  border: 2px solid #ffffff;\n  border-bottom-left-radius: 4px;\n  border-top-left-radius: 4px;\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0; }\n  .localSearchInput.localSearchInput-isInvalid {\n    border-color: #e74C3c; }\n  .theme-dark .localSearchInput {\n    color: #cecece;\n    background-color: #4e4e4e;\n    border-color: #4e4e4e; }\n    .theme-dark .localSearchInput.localSearchInput-isInvalid {\n      border-color: #ff6758; }\n\n.localSearchButton {\n  width: 43px;\n  height: 30px;\n  font-size: 14px;\n  color: #ffffff;\n  background-color: #9c9c9c;\n  border: 0;\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n  border-bottom-right-radius: 4px;\n  border-top-right-radius: 4px; }\n  .theme-dark .localSearchButton {\n    color: #ffffff;\n    background-color: #777777; }\n\n/**\n * 1. We want the bottom border on selected tabs to be flush with the bottom of the container.\n */\n.localTabs {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: end;\n      align-items: flex-end;\n  height: 100%; }\n\n/**\n   * 1. Make sure the bottom border is flush with the bottom of the LocalNav.\n   */\n.localTab {\n  padding: 5px 0 6px 0;\n  font-size: 18px;\n  line-height: 22px;\n  /* 1 */\n  color: #5a5a5a;\n  border-bottom: 2px solid transparent;\n  text-decoration: none;\n  cursor: pointer; }\n  .localTab:hover, .localTab:active {\n    color: #000000; }\n    .theme-dark .localTab:hover, .theme-dark .localTab:active {\n      color: #ffffff; }\n  .localTab.localTab-isSelected {\n    color: #000000;\n    border-bottom-color: #000000;\n    cursor: default; }\n    .theme-dark .localTab.localTab-isSelected {\n      color: #ffffff;\n      border-bottom-color: #ffffff; }\n  .localTab + .localTab {\n    margin-left: 15px; }\n  .theme-dark .localTab {\n    color: #dedede; }\n\n.localTitle {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  height: 100%;\n  padding-left: 10px;\n  font-size: 14px;\n  font-weight: bold; }\n\n/**\n * 1. Make seamless transition from ToolBar to Table header.\n * 1. Make seamless transition from Table to ToolBarFooter header.\n */\n.controlledTable .table {\n  border-top: none;\n  /* 1 */ }\n\n.controlledTable .toolBarFooter {\n  border-top: none;\n  /* 2 */ }\n\n.table {\n  table-layout: fixed;\n  width: 100%;\n  border: 2px solid #E4E4E4;\n  border-collapse: collapse; }\n\n.tableHeaderCell {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.5;\n  padding: 7px 8px 8px;\n  text-align: left;\n  color: #787878; }\n  .tableHeaderCell:last-child {\n    padding-right: 16px; }\n\n.tableHeaderCell--sortable {\n  cursor: pointer; }\n  .tableHeaderCell--sortable:hover:not(.tableHeaderCell-isSorted) .tableSortIcon {\n    opacity: 0.4; }\n\n.tableRowCell {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.5;\n  padding: 7px 8px 8px;\n  text-align: left;\n  color: #191E23;\n  border-top: 2px solid #E4E4E4; }\n  .tableRowCell:last-child {\n    padding-right: 16px; }\n\n.tableRowCell__liner {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n/**\n * 1. Rendered width of cell with checkbox inside of it.\n */\n.tableHeaderCell--checkBox,\n.tableRowCell--checkBox {\n  width: 28px;\n  /* 1 */\n  padding-right: 0; }\n\n.toolBar {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  padding: 10px;\n  height: 50px;\n  background-color: #E4E4E4; }\n  .toolBar .button--basic {\n    background-color: #FFFFFF; }\n    .toolBar .button--basic:hover:enabled {\n      background-color: #FFFFFF; }\n    .toolBar .button--basic:active:enabled {\n      background-color: #FAFAFA; }\n\n/**\n * 1. Put 10px of space between each child.\n */\n.toolBarSection {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  margin-left: 25px;\n  margin-right: 25px; }\n  .toolBarSection:last-child {\n    margin-right: 0; }\n  .toolBarSection > * + * {\n    margin-left: 10px;\n    /* 1 */ }\n\n.toolBarFooter {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  padding: 10px;\n  height: 40px;\n  background-color: #ffffff;\n  border: 2px solid #E4E4E4; }\n\n/**\n * 1. Put 10px of space between each child.\n */\n.toolBarFooterSection {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  margin-left: 25px;\n  margin-right: 25px; }\n  .toolBarFooterSection:last-child {\n    margin-right: 0; }\n  .toolBarFooterSection:only-child {\n    margin-left: auto; }\n  .toolBarFooterSection > * + * {\n    margin-left: 10px;\n    /* 1 */ }\n\n.toolBarSearch {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  max-width: 800px;\n  line-height: 1.5;\n  margin-right: 25px; }\n\n.toolBarSearchBox {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  position: relative; }\n\n.toolBarSearchBox__icon {\n  position: absolute;\n  top: 6px;\n  left: 8px;\n  font-size: 14px;\n  color: #ACACAC; }\n\n.toolBarSearchBox__input {\n  width: 100%;\n  min-width: 200px;\n  padding: 5px 12px 6px 28px;\n  background-color: #FFFFFF;\n  color: #191E23;\n  border: 1px solid #FFFFFF;\n  border-radius: 4px;\n  font-size: 14px; }\n  .toolBarSearchBox__input:focus {\n    z-index: 1;\n    /* 1 */\n    outline: 1px dotted #5aadff;\n    outline-offset: 2px; }\n\n/*\n * 1. We don't want the text to take up two lines and overflow the ToolBar.\n */\n.toolBarText {\n  font-size: 14px;\n  line-height: 1.5;\n  color: #5A5A5A;\n  white-space: nowrap;\n  /* 1 */ }\n\n.guideHome {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.guideHome__panel {\n  width: 100%;\n  max-width: 600px;\n  max-height: 500px;\n  padding: 60px;\n  margin-bottom: 20px;\n  border-radius: 3px;\n  background-color: #e8e8e8;\n  line-height: 24px; }\n\n.guideHome__panelTitle {\n  font-weight: 700;\n  font-size: 22px;\n  margin-bottom: 20px; }\n\n.guideHome__panelText {\n  font-size: 18px; }\n\n.guide {\n  display: -ms-flexbox;\n  display: flex;\n  height: 100%; }\n\n.guideContent {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  padding-top: 100px;\n  transition: padding-right 0.2s ease; }\n  .guideContent.is-code-viewer-open {\n    padding-right: 700px; }\n    @media only screen and (max-width: 1900px) {\n      .guideContent.is-code-viewer-open {\n        padding-right: 580px; } }\n\n.guideWarning {\n  border-left: 5px solid #e8488b;\n  margin-top: 19px;\n  padding: 0 14px;\n  line-height: 21px;\n  color: #e8488b; }\n\n.guideBreak {\n  border: none; }\n\n.guideCode {\n  padding: 2px 4px;\n  font-family: 'Ubuntu Mono', monospace;\n  background-color: #e8e8e8;\n  color: #565656; }\n\n.guideCodeViewer {\n  position: fixed;\n  top: 60px;\n  right: 0;\n  bottom: 0;\n  width: 700px;\n  padding: 40px 20px 40px 0;\n  background-color: white;\n  transform: translateX(700px);\n  transition: transform 0.2s ease;\n  overflow: auto; }\n  .guideCodeViewer::-webkit-scrollbar {\n    width: 16px;\n    height: 16px; }\n  .guideCodeViewer::-webkit-scrollbar-thumb {\n    background-color: rgba(69, 77, 88, 0.4);\n    border: 6px solid transparent;\n    background-clip: content-box; }\n  .guideCodeViewer::-webkit-scrollbar-track {\n    background-color: transparent; }\n  @media only screen and (max-width: 1900px) {\n    .guideCodeViewer {\n      width: 580px; } }\n  .guideCodeViewer.is-code-viewer-open {\n    transform: translateX(0); }\n\n.guideCodeViewer__header {\n  padding-bottom: 10px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6;\n  font-size: 18px;\n  font-weight: 700;\n  margin-bottom: 10px; }\n\n.guideCodeViewer__closeButton {\n  position: absolute;\n  top: 5px;\n  right: 5px;\n  cursor: pointer;\n  padding: 10px;\n  border-radius: 3px;\n  color: #6b7490; }\n  .guideCodeViewer__closeButton:hover {\n    color: #2b52cc; }\n\n.guideCodeViewer__title {\n  padding-bottom: 6px;\n  border-bottom: 1px solid #d6d6d6;\n  line-height: 24px;\n  font-size: 14px; }\n\n.guideCodeViewer__content {\n  margin: 0 0 16px; }\n\n.hljs {\n  display: block;\n  padding: 15px 20px;\n  color: #637c84;\n  font-size: 14px;\n  line-height: 1.3;\n  font-family: 'Ubuntu Mono', monospace; }\n\n.hljs-keyword {\n  color: #b58900; }\n\n.hljs-function .hljs-keyword {\n  color: #268bd2; }\n\n.hljs-function .hljs-title {\n  color: #7441c6; }\n\n.hljs-built_in {\n  color: #268bd2; }\n\n.hljs-string {\n  color: #36958e; }\n\n.hljs-comment {\n  color: #9d9d9d; }\n\n.hljs-number,\n.hljs-literal {\n  color: #d84a7e; }\n\n.hljs-tag .hljs-name {\n  color: #63a35c; }\n\n.hljs-tag .hljs-attr {\n  color: #795da3; }\n\n.hljs-tag .hljs-string {\n  color: #df5000; }\n\n.guideNav {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  background-color: #e8488b;\n  color: #ffffff;\n  box-shadow: inset 0 -20px 18px rgba(90, 16, 41, 0.2), inset 0 -5px 4px rgba(90, 16, 41, 0.3);\n  transition: height 0.3s ease;\n  overflow: hidden; }\n  .guideNav.is-guide-nav-open {\n    height: 100%; }\n\n.guideNav__header {\n  -ms-flex: 0 0 auto;\n      flex: 0 0 auto;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  height: 60px;\n  padding: 0 20px; }\n\n.guideNav__menu {\n  cursor: pointer;\n  margin-right: 10px;\n  padding: 10px;\n  border-radius: 3px; }\n  .guideNav__menu.is-menu-button-pinned, .guideNav__menu:hover {\n    background-color: rgba(0, 0, 0, 0.15); }\n  .guideNav__menu:active {\n    background-color: rgba(0, 0, 0, 0.2);\n    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2); }\n\n.guideNav__title {\n  color: white;\n  text-decoration: none;\n  font-size: 18px; }\n\n.guideNav__version {\n  margin-left: 10px;\n  font-weight: 300;\n  font-size: 14px; }\n\n.guideNavItemsContainer {\n  display: -ms-flexbox;\n  display: flex;\n  overflow: auto; }\n  .guideNavItemsContainer::-webkit-scrollbar {\n    width: 16px;\n    height: 16px; }\n  .guideNavItemsContainer::-webkit-scrollbar-thumb {\n    background-color: rgba(69, 77, 88, 0.4);\n    border: 6px solid transparent;\n    background-clip: content-box; }\n  .guideNavItemsContainer::-webkit-scrollbar-track {\n    background-color: transparent; }\n\n.guideNavItems {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  -ms-flex-align: start;\n      align-items: flex-start;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -ms-flex-line-pack: start;\n      align-content: flex-start; }\n\n.guideNavItem {\n  color: white;\n  text-decoration: none;\n  font-size: 20px;\n  line-height: 20px;\n  padding: 8px 20px;\n  border-radius: 3px; }\n  .guideNavItem:hover {\n    background-color: rgba(0, 0, 0, 0.15); }\n\n.guidePage {\n  display: -ms-flexbox;\n  display: flex; }\n\n.guidePageBody {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  padding: 0 80px 0 480px; }\n  @media only screen and (max-width: 1900px) {\n    .guidePageBody {\n      padding: 0 20px 0 220px; } }\n\n.guidePageSection {\n  margin-bottom: 40px; }\n\n.guidePageSection__header {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  -ms-flex-align: center;\n      align-items: center;\n  padding-bottom: 10px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6; }\n\n.guidePageSection__title {\n  font-size: 18px;\n  font-weight: 700; }\n\n.guidePageSection__sourceButton {\n  line-height: 10px;\n  padding: 4px 10px;\n  background-color: #19a8e0;\n  color: white;\n  border-radius: 3px;\n  cursor: pointer; }\n  .guidePageSection__sourceButton:hover {\n    box-shadow: inset 0 1px 0 #95e1ff, 0 2px 4px rgba(0, 0, 0, 0.2); }\n  .guidePageSection__sourceButton:active {\n    box-shadow: inset 0 20px 20px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.2); }\n\n.guidePageSection__description {\n  font-size: 14px;\n  line-height: 21px; }\n\n.guidePageSection__example + .guidePageSection__example {\n  margin-top: 20px; }\n\n.guidePageSection__example--standalone {\n  margin-top: 10px; }\n\n.guidePageSideNav {\n  position: fixed;\n  top: 100px;\n  left: 0;\n  bottom: 0;\n  width: 400px;\n  padding: 0 20px 30px 80px;\n  overflow: auto; }\n  .guidePageSideNav::-webkit-scrollbar {\n    width: 16px;\n    height: 16px; }\n  .guidePageSideNav::-webkit-scrollbar-thumb {\n    background-color: rgba(69, 77, 88, 0.4);\n    border: 6px solid transparent;\n    background-clip: content-box; }\n  .guidePageSideNav::-webkit-scrollbar-track {\n    background-color: transparent; }\n  @media only screen and (max-width: 1900px) {\n    .guidePageSideNav {\n      padding: 0 20px 30px 20px;\n      width: 220px; } }\n\n.guidePageSideNav__title {\n  padding-bottom: 10px;\n  margin-bottom: 10px;\n  font-size: 22px;\n  line-height: 24px;\n  border-bottom: 1px solid #d6d6d6;\n  opacity: 0.8; }\n\n.guidePageSideNavMenu {\n  line-height: 24px; }\n\n.guidePageSideNavMenu__item + .guidePageSideNavMenu__item {\n  margin-top: 6px; }\n\n.guidePageSideNavMenu__itemLink {\n  cursor: pointer;\n  color: #6b7490;\n  text-decoration: none; }\n  .guidePageSideNavMenu__itemLink:hover {\n    color: #2b52cc; }\n\n* {\n  box-sizing: border-box; }\n\nhtml,\nbody {\n  height: 100%; }\n\n/**\n * 1. Insane line-height makes it easier to notice when components are relying\n *    on styles inherited from body.\n */\nbody {\n  background: #ffffff;\n  line-height: 40px;\n  /* 1 */\n  margin: 0; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 736 */
+/* 761 */
 /***/ function(module, exports) {
 
 	/*
@@ -62666,7 +63123,7 @@
 
 
 /***/ },
-/* 737 */
+/* 762 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
