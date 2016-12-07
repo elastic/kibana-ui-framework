@@ -50,7 +50,7 @@ export default createExample([{
 }, {
   title: 'Element variations',
   description: (
-    <p>You can create a Button using a button element, link, div, span, or input[type="submit"].</p>
+    <p>You can create a Button using a button element, link, or input[type="submit"].</p>
   ),
   html: require('./button_elements.html'),
   hasDarkTheme: false,
