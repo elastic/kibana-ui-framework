@@ -26,10 +26,16 @@ $lineHeight: 1.5;
 $buttonBorderRadius: 4px;
 
 // Colors
+$fontColor: #191E23;
 $panelColor: #E4E4E4;
+$selectedBorderColor: #6EADC1;
+$errorBorderColor: #D86051;
 
 // Borders
 $tableBorder: 2px solid $panelColor;
+
+// Timing
+$formTransitionTiming: 0.1s linear;
 
 @mixin darkTheme() {
   .theme-dark & {
@@ -37,9 +43,17 @@ $tableBorder: 2px solid $panelColor;
   }
 }
 
+/**
+ * 1. Make sure outline doesn't get hidden beneath adjacent elements.
+ */
 @mixin focus {
+  z-index: 1; /* 1 */
   outline: 1px dotted #5aadff;
   outline-offset: 2px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -47,6 +61,7 @@ body {
 }
 
 @import "components/button/index";
+@import "components/form/index";
 @import "components/local_nav/index";
 @import "components/table/index";
 @import "components/tool_bar/index";

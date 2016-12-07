@@ -24,6 +24,7 @@
 
 .tableRowCell {
   @include tableCell;
+  color: $fontColor;
   border-top: $tableBorder;
 }
 

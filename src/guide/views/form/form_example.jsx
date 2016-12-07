@@ -5,11 +5,11 @@ import {
 } from '../../services';
 
 export default createExample([{
-  title: 'Table',
-  html: require('./table.html'),
+  title: 'TextInput',
+  html: require('./text_input.html'),
   hasDarkTheme: false,
 }, {
-  title: 'ControlledTable',
-  html: require('./controlled_table.html'),
+  title: 'CheckBox',
+  html: require('./check_box.html'),
   hasDarkTheme: false,
 }]);

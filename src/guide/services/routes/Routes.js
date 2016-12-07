@@ -4,6 +4,9 @@ import Slugify from '../string/slugify';
 import ButtonExample
   from '../../views/button/button_example.jsx';
 
+import FormExample
+  from '../../views/form/form_example.jsx';
+
 import LocalNavExample
   from '../../views/local_nav/local_nav_example.jsx';
 
@@ -17,6 +20,9 @@ import ToolBarExample
 const components = [{
   name: 'Button',
   component: ButtonExample,
+}, {
+  name: 'Form',
+  component: FormExample,
 }, {
   name: 'LocalNav',
   component: LocalNavExample,
