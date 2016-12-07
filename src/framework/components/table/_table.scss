@@ -1,0 +1,32 @@
+@mixin tableCell {
+  font-size: $fontSize;
+  font-weight: 400;
+  line-height: $lineHeight;
+  padding: 7px 8px 8px;
+  text-align: left;
+
+  &:last-child {
+    padding-right: 16px;
+  }
+}
+
+.table {
+  width: 100%;
+  border: 2px solid #F2F2F2;
+  border-collapse: collapse;
+}
+
+.tableHeaderCell {
+  @include tableCell;
+  color: #787878;
+}
+
+.tableRowCell {
+  @include tableCell;
+  border-top: 2px solid #F2F2F2;
+}
+
+.tableHeaderCell--checkBox,
+.tableRowCell--checkBox {
+  padding-right: 0;
+}

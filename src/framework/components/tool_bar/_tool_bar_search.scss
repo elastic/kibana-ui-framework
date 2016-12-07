@@ -1,8 +1,13 @@
 .toolBarSearch {
+  display: flex;
+  flex: 1 1 auto;
+  max-width: 800px;
   line-height: $lineHeight;
+  margin-right: $toolBarSectionSpacing * 0.5;
 }
 
 .toolBarSearchBox {
+  flex: 1 1 auto;
   position: relative;
 }
 
@@ -15,7 +20,8 @@
   }
 
   .toolBarSearchBox__input {
-    width: 350px;
+    width: 100%;
+    min-width: 200px;
     padding: 5px 12px 6px 28px;
     background-color: #FFFFFF;
     border: 1px solid #FFFFFF;

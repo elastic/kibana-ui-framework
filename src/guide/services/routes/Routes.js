@@ -7,6 +7,9 @@ import ButtonExample
 import LocalNavExample
   from '../../views/local_nav/local_nav_example.jsx';
 
+import TableExample
+  from '../../views/table/table_example.jsx';
+
 import ToolBarExample
   from '../../views/tool_bar/tool_bar_example.jsx';
 
@@ -17,6 +20,9 @@ const components = [{
 }, {
   name: 'LocalNav',
   component: LocalNavExample,
+}, {
+  name: 'Table',
+  component: TableExample,
 }, {
   name: 'ToolBar',
   component: ToolBarExample,

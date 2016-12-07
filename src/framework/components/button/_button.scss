@@ -26,13 +26,11 @@
   background-color: #F2F2F2;
 
   &:hover:enabled {
-    color: #FFFFFF;
-    background-color: #006D89;
+    background-color: #e4e4e4;
   }
 
   &:active:enabled {
-    color: #FFFFFF;
-    background-color: #00586A;
+    background-color: #d8d8d8;
   }
 
   &:disabled {
