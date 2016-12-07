@@ -31,6 +31,11 @@ $buttonBorderRadius: 4px;
   }
 }
 
+@mixin focus {
+  outline: 1px dotted #5aadff;
+  outline-offset: 2px;
+}
+
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }

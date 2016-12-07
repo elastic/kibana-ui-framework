@@ -6,11 +6,11 @@ import {
 } from '../../services';
 
 export default createExample([{
-  title: 'Default Button',
+  title: 'Basic Button',
   description: (
-    <p>Use the default Button in most situations.</p>
+    <p>Use the basic Button in most situations.</p>
   ),
-  html: require('./button_default.html'),
+  html: require('./button_basic.html'),
   hasDarkTheme: false,
 }, {
   title: 'Primary Button',

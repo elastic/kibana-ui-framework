@@ -4,6 +4,18 @@
   padding: 10px;
   height: 50px;
   background-color: #E4E4E4;
+
+  .button--basic {
+    background-color: #FFFFFF;
+
+    &:hover:enabled {
+      background-color: #FFFFFF;
+    }
+
+    &:active:enabled {
+      background-color: #FAFAFA;
+    }
+  }
 }
 
 /**

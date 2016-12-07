@@ -13,6 +13,24 @@
   &:disabled {
     cursor: default;
   }
+
+  &:hover:enabled {
+    box-shadow:
+      0 1px 0 rgba(black, 0.1),
+      0 1px 2px rgba(black, 0.05),
+      0 2px 4px rgba(black, 0.05);
+  }
+
+  &:active:enabled {
+    box-shadow:
+      inset 0 1px 0 rgba(black, 0.1),
+      inset 0 1px 2px rgba(black, 0.05),
+      inset 0 2px 4px rgba(black, 0.05);
+  }
+
+  &:focus {
+    @include focus;
+  }
 }
 
 .button--iconText {
@@ -21,7 +39,7 @@
   }
 }
 
-.button--default {
+.button--basic {
   color: #191E23;
   background-color: #F2F2F2;
 
