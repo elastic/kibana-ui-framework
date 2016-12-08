@@ -1,11 +1,11 @@
-.toolBar {
+.kuiToolBar {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   height: 50px;
   background-color: $panelColor;
 
-  .button--basic {
+  .kuibBtton--basic {
     background-color: #FFFFFF;
 
     &:hover:enabled {
@@ -21,7 +21,7 @@
 /**
  * 1. Put 10px of space between each child.
  */
-.toolBarSection {
+.kuiToolBarSection {
   display: flex;
   align-items: center;
   margin-left: $toolBarSectionSpacing * 0.5;

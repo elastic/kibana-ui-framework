@@ -1,21 +1,21 @@
-.buttonGroup {
+.kuiButtonGroup {
   display: flex;
 
-  > .button:not(:first-child):not(:last-child) {
+  > .kuiButton:not(:first-child):not(:last-child) {
     border-radius: 0;
   }
 
-  > .button:first-child {
+  > .kuiButton:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  > .button:last-child {
+  > .kuiButton:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  .button + .button {
+  .kuiButton + .kuiButton {
     margin-left: 2px;
   }
 }

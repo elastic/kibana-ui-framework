@@ -1,4 +1,4 @@
-.toolBarSearch {
+.kuiToolBarSearch {
   display: flex;
   flex: 1 1 auto;
   max-width: 800px;
@@ -6,12 +6,12 @@
   margin-right: $toolBarSectionSpacing * 0.5;
 }
 
-.toolBarSearchBox {
+.kuiToolBarSearchBox {
   flex: 1 1 auto;
   position: relative;
 }
 
-  .toolBarSearchBox__icon {
+  .kuiToolBarSearchBox__icon {
     position: absolute;
     top: 6px;
     left: 8px;
@@ -19,7 +19,7 @@
     color: #ACACAC;
   }
 
-  .toolBarSearchBox__input {
+  .kuiToolBarSearchBox__input {
     width: 100%;
     min-width: 200px;
     padding: 5px 12px 6px 28px;

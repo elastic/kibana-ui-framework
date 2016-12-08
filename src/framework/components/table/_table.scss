@@ -10,35 +10,43 @@
   }
 }
 
-.table {
+.kuiTable {
   table-layout: fixed;
   width: 100%;
   border: $tableBorder;
   border-collapse: collapse;
 }
 
-.tableHeaderCell {
+.kuiTableHeaderCell {
   @include tableCell;
   color: #787878;
 }
 
-.tableHeaderCell--sortable {
+/**
+ * 1. Prevent rapid clicking from selecting text.
+ */
+.kuiTableHeaderCell--sortable {
+  user-select: none; /* 1 */
   cursor: pointer;
 
-  &:hover:not(.tableHeaderCell-isSorted) {
-    .tableSortIcon {
+  &:hover:not(.kuiTableHeaderCell-isSorted) {
+    .kuiTableSortIcon {
       opacity: 0.4;
     }
   }
 }
 
-.tableRowCell {
+.kuiTableSortIcon {
+  pointer-events: none;
+}
+
+.kuiTableRowCell {
   @include tableCell;
   color: $fontColor;
   border-top: $tableBorder;
 }
 
-  .tableRowCell__liner {
+  .kuiTableRowCell__liner {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,8 +55,8 @@
 /**
  * 1. Rendered width of cell with checkbox inside of it.
  */
-.tableHeaderCell--checkBox,
-.tableRowCell--checkBox {
+.kuiTableHeaderCell--checkBox,
+.kuiTableRowCell--checkBox {
   width: 28px; /* 1 */
   padding-right: 0;
 }

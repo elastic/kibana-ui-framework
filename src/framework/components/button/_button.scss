@@ -1,4 +1,4 @@
-.button {
+.kuiButton {
   appearance: none;
   padding: 4px 12px 5px;
   font-size: $fontSize;
@@ -32,13 +32,13 @@
   }
 }
 
-.button--iconText {
-  .button__icon {
+.kuiButton--iconText {
+  .kuiButton__icon {
     margin-right: 4px;
   }
 }
 
-.button--basic {
+.kuiButton--basic {
   color: $fontColor;
   background-color: #F2F2F2;
 
@@ -55,7 +55,7 @@
   }
 }
 
-.button--primary {
+.kuiButton--primary {
   background-color: #6EADC1;
   color: #FFFFFF;
 
@@ -72,7 +72,7 @@
   }
 }
 
-.button--danger {
+.kuiButton--danger {
   background-color: #D76051;
   color: #FFFFFF;
 

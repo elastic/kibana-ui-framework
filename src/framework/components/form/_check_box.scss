@@ -3,7 +3,7 @@
  *    ugly default appearance which we can't customize, so our best option is to give Firefox
  *    control over the checkbox's appearance.
  */
-.checkBox {
+.kuiCheckBox {
   -webkit-appearance: none; /* 1 */
   background-color: #FFFFFF;
   border: 1px solid #BEBEBE;
