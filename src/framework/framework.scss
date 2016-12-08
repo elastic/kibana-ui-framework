@@ -49,9 +49,9 @@ $formTransitionTiming: 0.1s linear;
 /**
  * 1. Make sure outline doesn't get hidden beneath adjacent elements.
  */
-@mixin focus {
+@mixin focus($color: #5aadff) {
   z-index: 1; /* 1 */
-  outline: 1px dotted #5aadff;
+  outline: 1px dotted $color;
   outline-offset: 2px;
 }
 

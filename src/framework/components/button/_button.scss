@@ -60,11 +60,11 @@
   color: #FFFFFF;
 
   &:hover:enabled {
-    background-color: #006D89;
+    background-color: #73c6e0;
   }
 
   &:active:enabled {
-    background-color: #00586A;
+    background-color: #6EADC1;
   }
 
   &:disabled {
@@ -77,14 +77,18 @@
   color: #FFFFFF;
 
   &:hover:enabled {
-    background-color: #B94233;
+    background-color: #ff523c;
   }
 
   &:active:enabled {
-    background-color: #A52E1F;
+    background-color: #D76051;
   }
 
   &:disabled {
     background-color: #ebbeb8;
+  }
+
+  &:focus {
+    @include focus(#ff523c);
   }
 }
