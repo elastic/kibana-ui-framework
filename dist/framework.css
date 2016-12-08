@@ -20,8 +20,10 @@
       color: #a5a5a5; }
 
 .localBreadcrumb:last-child .localBreadcrumb__link {
-  pointer-events: none;
-  color: #2d2d2d; }
+  color: #2d2d2d;
+  cursor: default; }
+  .localBreadcrumb:last-child .localBreadcrumb__link:hover {
+    text-decoration: none; }
   .theme-dark .localBreadcrumb:last-child .localBreadcrumb__link {
     color: #cecece; }
 
@@ -158,8 +160,10 @@
     background-color: #f6f6f6; }
   .localMenuItem.localMenuItem-isDisabled {
     opacity: 0.5;
-    cursor: default;
-    pointer-events: none; }
+    cursor: default; }
+    .localMenuItem.localMenuItem-isDisabled:hover {
+      background-color: transparent;
+      color: #5a5a5a; }
   .theme-dark .localMenuItem {
     color: #dedede; }
     .theme-dark .localMenuItem:hover {
@@ -167,6 +171,9 @@
       color: #ffffff; }
     .theme-dark .localMenuItem.localMenuItem-isSelected {
       background-color: #525252; }
+    .theme-dark .localMenuItem.localMenuItem-isDisabled:hover {
+      background-color: transparent;
+      color: #dedede; }
 
 .localMenuItem__icon {
   margin-right: 5px;
