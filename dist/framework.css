@@ -40,11 +40,29 @@
   font-weight: 700; }
 
 .localDropdown {
+  position: relative;
   padding: 10px 10px 14px;
   background-color: #f6f6f6;
   line-height: 20px; }
   .theme-dark .localDropdown {
     background-color: #525252; }
+
+.localDropdownCloseButton {
+  appearance: none;
+  background-color: transparent;
+  padding: 4px;
+  border: none;
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  font-size: 16px;
+  color: #2d2d2d;
+  cursor: pointer;
+  opacity: 0.35; }
+  .localDropdownCloseButton:hover {
+    opacity: 1; }
+  .theme-dark .localDropdownCloseButton {
+    color: #cecece; }
 
 .localDropdownPanels {
   display: flex; }

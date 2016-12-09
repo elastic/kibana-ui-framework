@@ -1,6 +1,6 @@
 {
   "name": "@elastic/kibana-ui-framework",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Kibana UI Framework",
   "main": "index.js",
   "scripts": {
