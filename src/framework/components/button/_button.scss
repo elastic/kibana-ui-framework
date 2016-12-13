@@ -13,18 +13,8 @@
     cursor: default;
   }
 
-  &:hover:enabled {
-    box-shadow:
-      0 1px 0 rgba(black, 0.1),
-      0 1px 2px rgba(black, 0.05),
-      0 2px 4px rgba(black, 0.05);
-  }
-
   &:active:enabled {
-    box-shadow:
-      inset 0 1px 0 rgba(black, 0.1),
-      inset 0 1px 2px rgba(black, 0.05),
-      inset 0 2px 4px rgba(black, 0.05);
+    transform: translateY(1px);
   }
 
   &:focus {
@@ -43,11 +33,13 @@
   background-color: #F2F2F2;
 
   &:hover:enabled {
-    background-color: #f4f4f4;
+    color: #ffffff;
+    background-color: #787878;
   }
 
   &:active:enabled {
-    background-color: #F2F2F2;
+    color: #ffffff;
+    background-color: #5A5A5A;
   }
 
   &:disabled {
@@ -60,11 +52,11 @@
   color: #FFFFFF;
 
   &:hover:enabled {
-    background-color: #73c6e0;
+    background-color: #006E8A;
   }
 
   &:active:enabled {
-    background-color: #6EADC1;
+    background-color: #00586A;
   }
 
   &:disabled {
@@ -77,15 +69,15 @@
   color: #FFFFFF;
 
   &:hover:enabled {
-    background-color: #ff523c;
+    background-color: #B94233;
   }
 
   &:active:enabled {
-    background-color: #D76051;
+    background-color: #A52E1F;
   }
 
   &:disabled {
-    background-color: #ebbeb8;
+    background-color: #efc0ba;
   }
 
   &:focus {
