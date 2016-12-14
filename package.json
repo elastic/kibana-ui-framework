@@ -7,14 +7,14 @@
     "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base public/",
     "build": "./node_modules/.bin/webpack",
     "deploy": "npm run build; gh-pages -d public -r https://github.com/elastic/kibana-ui-framework",
-    "dist": "./node_modules/node-sass/bin/node-sass ./src/framework/framework.scss ./dist/framework.css",
+    "dist": "node-sass ./src/framework/framework.scss ./dist/framework.css",
     "preversion": "npm run dist",
     "postversion": "npm run deploy"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@elastic/eslint-config-kibana": "0.1.0",
+    "autoprefixer": "6.5.3",
     "babel-core": "6.10.4",
     "babel-eslint": "4.1.8",
     "babel-loader": "6.2.4",
@@ -37,7 +37,7 @@
     "json-loader": "0.5.4",
     "keymirror": "0.1.1",
     "node-sass": "3.8.0",
-    "numeral": "1.5.3",
+    "postcss-loader": "1.2.0",
     "raw-loader": "0.5.1",
     "react": "15.2.0",
     "react-addons-test-utils": "15.2.0",

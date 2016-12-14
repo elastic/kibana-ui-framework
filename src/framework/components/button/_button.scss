@@ -1,0 +1,86 @@
+.kuiButton {
+  appearance: none;
+  padding: 4px 12px 5px;
+  font-size: $fontSize;
+  font-weight: 400;
+  line-height: $lineHeight;
+  text-decoration: none;
+  border: none;
+  border-radius: $buttonBorderRadius;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:active:enabled {
+    transform: translateY(1px);
+  }
+
+  &:focus {
+    @include focus;
+  }
+}
+
+.kuiButton--iconText {
+  .kuiButton__icon {
+    margin-right: 4px;
+  }
+}
+
+.kuiButton--basic {
+  color: #5a5a5a;
+  background-color: #F2F2F2;
+
+  &:hover:enabled {
+    color: #ffffff;
+    background-color: #787878;
+  }
+
+  &:active:enabled {
+    color: #ffffff;
+    background-color: #5A5A5A;
+  }
+
+  &:disabled {
+    color: #9B9B9B;
+  }
+}
+
+.kuiButton--primary {
+  background-color: #6EADC1;
+  color: #FFFFFF;
+
+  &:hover:enabled {
+    background-color: #006E8A;
+  }
+
+  &:active:enabled {
+    background-color: #00586A;
+  }
+
+  &:disabled {
+    background-color: #B6D6E0;
+  }
+}
+
+.kuiButton--danger {
+  background-color: #D76051;
+  color: #FFFFFF;
+
+  &:hover:enabled {
+    background-color: #B94233;
+  }
+
+  &:active:enabled {
+    background-color: #A52E1F;
+  }
+
+  &:disabled {
+    background-color: #efc0ba;
+  }
+
+  &:focus {
+    @include focus(#ff523c);
+  }
+}
